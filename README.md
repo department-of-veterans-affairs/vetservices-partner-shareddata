@@ -1,13 +1,13 @@
 # What is this repository for?
 
-This repository contains the VetServices Partner Client project for Shared (Standard) Data
+This repository contains the VetServices Partner Client project for Medical (Standard) Data
 
 # Overview - VetServices Partner SharedData
 
-This project is a component JAR used to access shared data. Include it in your project
+This project is a component JAR used to access shared data. Include it in your project.
 
 ## Using the JAR
-Include the JAR in your dependencies, and access functionality through the SharedDataWsClient class.
+Include the JAR in your dependencies, and access functionality through the SharedDataWsClient interface.
 
 # Requests and Contributions
 
