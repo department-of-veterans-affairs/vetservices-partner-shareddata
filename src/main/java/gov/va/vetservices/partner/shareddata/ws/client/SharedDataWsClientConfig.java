@@ -208,7 +208,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	@Bean
 	WsClientSimulatorMarshallingInterceptor sharedDataWsClientSimulatorMarshallingInterceptor() {
 		// CHECKSTYLE:ON
-		final Map<String, Jaxb2Marshaller> marshallerForPackageMap = new HashMap<String, Jaxb2Marshaller>();
+		final Map<String, Jaxb2Marshaller> marshallerForPackageMap = new HashMap<>();
 		marshallerForPackageMap.put(TRANSFER_PACKAGE, sharedDataMarshaller());
 		return new WsClientSimulatorMarshallingInterceptor(marshallerForPackageMap);
 	}

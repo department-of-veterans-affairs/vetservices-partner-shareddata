@@ -4,15 +4,17 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountries;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountriesResponse;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindIntakeSites;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindIntakeSitesResponse;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddress;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddressResponse;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStates;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStatesResponse;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddress;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddressResponse;
 
 /**
  * The interface for the SharedData Web Service Client.
  *
  */
+// Sonar mis-identifies this interface as a single-abstract-method interface.
+@SuppressWarnings("squid:S1609")
 public interface SharedDataWsClient {
 
 	/** Spring profile for SharedData wsclient remote client implementation. */
