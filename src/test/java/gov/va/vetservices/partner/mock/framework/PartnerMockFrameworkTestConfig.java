@@ -29,7 +29,7 @@ public class PartnerMockFrameworkTestConfig extends BasePropertiesConfig
 	 */
 
 	/** The Constant APP_NAME. */
-	public static final String APP_NAME = "wss-partner-mock-framework-test";
+	public static final String APP_NAME = "vetservices-partner-mock-framework-test";
 
 	/** The Constant DEFAULT_PROPERTIES. */
 	private static final String DEFAULT_PROPERTIES = "classpath:/config/" + APP_NAME + ".properties";

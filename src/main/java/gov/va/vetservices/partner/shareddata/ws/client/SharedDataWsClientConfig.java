@@ -46,25 +46,26 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 
 	// ####### values are from /resource/config/*.properties ######
 	/** The username. */
-	@Value("${wss-partner-sharedstandarddata.ws.client.username}")
+	@Value("${vetservices-partner-shareddata.ws.client.username}")
 	private String bgsUsername;
 
 	/** The password. */
-	@Value("${wss-partner-sharedstandarddata.ws.client.password}")
+	@Value("${vetservices-partner-shareddata.ws.client.password}")
 	private String bgsPassword;
 
 	/** The va application name. */
-	@Value("${wss-partner-sharedstandarddata.ws.client.vaApplicationName}")
+	@Value("${vetservices-partner-shareddata.ws.client.vaApplicationName}")
 	private String bgsVaApplicationName;
 
 	/** VA STN_ID value */
-	@Value("${wss-partner-sharedstandarddata.ws.client.stationID}")
+	@Value("${vetservices-partner-shareddata.ws.client.stationId}")
 	private String bgsStationId;
 
 	/**
 	 * decides if jaxb validation logs errors.
 	 */
-	//causes failure because apparently true is not a boolean value: @Value("${wss-common-services.ws.log.jaxb.validation:true}")
+	//annotation causes failure because apparently true is not a boolean value:
+	@Value("${wss-common-services.ws.log.jaxb.validation:true}")
 	private final boolean logValidation = false;
 
 	/**

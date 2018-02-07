@@ -40,9 +40,9 @@ public class PartnerMockFrameworkConfig {
 	@Bean
 	Db4oDatabase partnerMockDb (
 			// CHECKSTYLE:ON
-			@Value("${wss-partner-mock-framework.db4oFile:}")final String db4oFile,
-			@Value("${wss-partner-mock-framework.db4oFile.clientServerMode:true}") final Boolean clientServerMode,
-			@Value("${wss-partner-mock-framework.db4oFile.port:9523}") final int port) {
+			@Value("${vetservices-partner-mock-framework.db4oFile:}")final String db4oFile,
+			@Value("${vetservices-partner-mock-framework.db4oFile.clientServerMode:true}") final Boolean clientServerMode,
+			@Value("${vetservices-partner-mock-framework.db4oFile.port:9523}") final int port) {
 
 		final Db4oDatabase db4oDatabase = new Db4oDatabase();
 		if ((db4oFile == null) || StringUtils.isEmpty(db4oFile.trim())) {

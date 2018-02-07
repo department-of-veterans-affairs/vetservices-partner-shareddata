@@ -3,16 +3,6 @@ package gov.va.vetservices.partner.shareddata.ws.client;
 import javax.annotation.PostConstruct;
 import javax.xml.bind.JAXBElement;
 
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountries;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountriesResponse;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindIntakeSites;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindIntakeSitesResponse;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddress;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddressResponse;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStates;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStatesResponse;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.ObjectFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Profile;
@@ -22,6 +12,15 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 import gov.va.ascent.framework.config.AscentCommonSpringProfiles;
 import gov.va.ascent.framework.util.Defense;
 import gov.va.ascent.framework.ws.client.BaseWsClientImpl;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountries;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountriesResponse;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindIntakeSites;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindIntakeSitesResponse;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStates;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStatesResponse;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddress;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddressResponse;
+import gov.va.vetservices.partner.shareddata.ws.client.transfer.ObjectFactory;
 
 /**
  * This class provides an implementation of the SharedDataWSClient interface. It
@@ -29,7 +28,7 @@ import gov.va.ascent.framework.ws.client.BaseWsClientImpl;
  */
 @Component(SharedDataWsClientImpl.BEAN_NAME)
 @Profile({ AscentCommonSpringProfiles.PROFILE_REMOTE_CLIENT_IMPLS,
-		SharedDataWsClient.PROFILE_SHAREDDATAWSCLIENT_REMOTE_CLIENT_IMPL })
+	SharedDataWsClient.PROFILE_SHAREDDATAWSCLIENT_REMOTE_CLIENT_IMPL })
 public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDataWsClient {
 
 	/**
@@ -47,7 +46,7 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 	 */
 	@Autowired
 	@Qualifier("sharedDataWsClient.axiom")
-	private WebServiceTemplate axiomWebServiceTemplate;
+	public WebServiceTemplate axiomWebServiceTemplate;
 
 	/**
 	 * The WebServiceTemplate can't be null.

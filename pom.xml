@@ -1,13 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project 
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-        <groupId>gov.va.ascent</groupId>
-        <artifactId>ascent-libraries-parent</artifactId>
-        <version>0.0.1</version>
-    </parent>
+		<groupId>gov.va.ascent</groupId>
+		<artifactId>ascent-platform-parent</artifactId>
+		<version>0.0.3-SNAPSHOT</version>
+		<relativePath />
+	</parent>
 
 	<groupId>gov.va.vetservices.partner</groupId>
 	<artifactId>vetservices-partner-shareddata</artifactId>
@@ -15,27 +19,88 @@
 	<name>${project.artifactId}</name>
 	<description>VetServices Shared Data partner client</description>
 
-    <packaging>jar</packaging>
+	<packaging>jar</packaging>
 
 	<properties>
-		<!--  system properties -->
+		<!-- dependencies that could be in framework -->
+		<spring.ws.test.version>3.0.0.RELEASE</spring.ws.test.version>
+
+		<!-- expression language -->
+		<org.glassfish.web.version>2.2</org.glassfish.web.version>
+
+		<!-- system properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<!-- Docker properties to add min and max memory for spring boot jar start up -->
+		<docker.java.opts.ms>-Xms64m</docker.java.opts.ms>
+		<docker.java.opts.mx>-Xmx256m</docker.java.opts.mx>
 	</properties>
 
 	<dependencies>
+		<!-- dependencies that could be in framework -->
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-test</artifactId>
+			<version>3.0.0.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
-            <groupId>gov.va.ascent</groupId>
-            <artifactId>ascent-framework</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
-        </dependency>
+			<groupId>gov.va.ascent</groupId>
+			<artifactId>ascent-platform-starter</artifactId>
+			<!-- version>0.0.1-SNAPSHOT</version -->
+		</dependency>
+		<dependency>
+			<groupId>gov.va.ascent</groupId>
+			<artifactId>ascent-framework</artifactId>
+		</dependency>
+
+		<!-- spring framework project dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+		</dependency>
+
+		<!-- JSR 303 validation dependencies -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+
+		<!-- AspectJ weaver project dependencies -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+		</dependency>
+
+		<!-- Hibernate Validator project dependencies -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+		<!-- Expression Language Implementation dependencies -->
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>el-impl</artifactId>
+			<version>${org.glassfish.web.version}</version>
+		</dependency>
 
 		<!-- Apache Commons project dependencies -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<!-- Logging library dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 
 		<!-- Test Dependencies -->

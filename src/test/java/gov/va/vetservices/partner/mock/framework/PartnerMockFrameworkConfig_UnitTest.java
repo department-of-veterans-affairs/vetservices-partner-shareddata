@@ -1,8 +1,13 @@
 package gov.va.vetservices.partner.mock.framework;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+
+import gov.va.ascent.framework.persist.Db4oDatabase;
 
 /**
  * The primary purpose of this test is to load the spring context files for the
@@ -17,18 +22,18 @@ public class PartnerMockFrameworkConfig_UnitTest extends AbstractPartnerMockFram
 	 *  To get past this, comment out the class variables and the assercions in .testContextLoaded()
 	 */
 
-	//	@Autowired
-	//	private ApplicationContext applicationContext;
-	//
-	//	@Autowired
-	//	private Db4oDatabase partnerMockDb;
+	@Autowired
+	private ApplicationContext applicationContext;
+
+	@Autowired
+	private Db4oDatabase partnerMockDb;
 
 	@Test
 	public void testContextLoaded() {
 		assertTrue(true);
-		//		assertNotNull(applicationContext);
-		//		assertNotNull(partnerMockDb);
-		//		assertTrue(applicationContext.containsBean("partnerMockDb"));
+		assertNotNull(applicationContext);
+		assertNotNull(partnerMockDb);
+		assertTrue(applicationContext.containsBean("partnerMockDb"));
 	}
 
 }

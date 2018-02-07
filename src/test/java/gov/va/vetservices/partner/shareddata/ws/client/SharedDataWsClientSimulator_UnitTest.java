@@ -1,7 +1,7 @@
 /*
  *
  */
-package gov.va.vetservices.partner.shareddate.ws.client;
+package gov.va.vetservices.partner.shareddata.ws.client;
 
 import org.junit.Assert;
 import org.junit.Before;
