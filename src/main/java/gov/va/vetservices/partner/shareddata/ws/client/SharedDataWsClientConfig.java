@@ -65,8 +65,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	 * decides if jaxb validation logs errors.
 	 */
 	//annotation causes failure because apparently true is not a boolean value:
-	@Value("${wss-common-services.ws.log.jaxb.validation:true}")
-	private final boolean logValidation = false;
+	private final boolean logValidation = true;
 
 	/**
 	 * WS Client object marshaller
