@@ -8,9 +8,8 @@
 
 	<parent>
 		<groupId>gov.va.ascent</groupId>
-		<artifactId>ascent-platform-parent</artifactId>
-		<version>0.0.3-SNAPSHOT</version>
-		<relativePath />
+		<artifactId>ascent-libraries-parent</artifactId>
+		<version>0.0.1</version>
 	</parent>
 
 	<groupId>gov.va.vetservices.partner</groupId>
@@ -22,73 +21,18 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<!-- dependencies that could be in framework -->
-		<spring.ws.test.version>3.0.0.RELEASE</spring.ws.test.version>
-
-		<!-- expression language -->
-		<org.glassfish.web.version>2.2</org.glassfish.web.version>
-
 		<!-- system properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<!-- Docker properties to add min and max memory for spring boot jar start up -->
-		<docker.java.opts.ms>-Xms64m</docker.java.opts.ms>
-		<docker.java.opts.mx>-Xmx256m</docker.java.opts.mx>
 	</properties>
 
 	<dependencies>
-		<!-- dependencies that could be in framework -->
-		<dependency>
-			<groupId>org.springframework.ws</groupId>
-			<artifactId>spring-ws-test</artifactId>
-			<version>3.0.0.RELEASE</version>
-			<scope>test</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>gov.va.ascent</groupId>
-			<artifactId>ascent-platform-starter</artifactId>
-			<!-- version>0.0.1-SNAPSHOT</version -->
-		</dependency>
 		<dependency>
 			<groupId>gov.va.ascent</groupId>
 			<artifactId>ascent-framework</artifactId>
-		</dependency>
-
-		<!-- spring framework project dependencies -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.ws</groupId>
-			<artifactId>spring-ws-core</artifactId>
-		</dependency>
-
-		<!-- JSR 303 validation dependencies -->
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-		</dependency>
-
-		<!-- AspectJ weaver project dependencies -->
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjtools</artifactId>
-		</dependency>
-
-		<!-- Hibernate Validator project dependencies -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-
-		<!-- Expression Language Implementation dependencies -->
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>el-impl</artifactId>
-			<version>${org.glassfish.web.version}</version>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 
 		<!-- Apache Commons project dependencies -->
@@ -97,26 +41,36 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
-		<!-- Logging library dependencies -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-
 		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
 		</dependency>
 
+		<!-- for WebServiceTemplate -->
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+		</dependency>
+		<!-- for MockWebServiceServer -->
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-test</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
-
 		<plugins>
 			<!-- repackages jar and war plugins so they can be executed with command line -->
 			<plugin>
