@@ -7,13 +7,13 @@
 #we need to use a unique port per ws-partner micro jar, convention is use 97## convention
 #using 9701 as the starting point, and we need to increment by 1 for each newly added jar
 #so count the number of wss-partner projects, if your project is #30 then your port would be 9730
-vetservices-partner-shareddata.ws.client.endpoint=http://localhost:9723/mockshareddataServicePortBinding
+vetservices-partner-shareddata.ws.client.endpoint: http://localhost:9723/mockshareddataServicePortBinding
 
-vetservices-partner-shareddata.ws.client.username=unitTestUsername
-vetservices-partner-shareddata.ws.client.password=unitTestPassword
-vetservices-partner-shareddata.ws.client.vaApplicationName=unitTestAppName
-vetservices-partner-shareddata.ws.client.stationID=unitTestStationID
+vetservices-partner-shareddata.ws.client.username: unitTestUsername
+vetservices-partner-shareddata.ws.client.password: unitTestPassword
+vetservices-partner-shareddata.ws.client.vaApplicationName: unitTestAppName
+vetservices-partner-shareddata.ws.client.stationId: unitTestStationID
 
-wss-persist.hibernateJpaConfig.packagesToScan=gov.va.evss.database.persist.domain
+wss-persist.hibernateJpaConfig.packagesToScan: gov.va.evss.database.persist.domain
 
-wss-common-services.ws.log.jaxb.validation=true
+wss-common-services.ws.log.jaxb.validation: true

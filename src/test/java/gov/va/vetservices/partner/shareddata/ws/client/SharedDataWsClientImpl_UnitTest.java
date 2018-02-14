@@ -13,7 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.test.client.MockWebServiceServer;
 import org.springframework.xml.transform.StringSource;
@@ -39,11 +43,12 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountriesRes
  *                                        PartnerMockFrameworkTestConfig.class
  *                                        })
  */
-@RunWith(SpringRunner.class)
-@ActiveProfiles({ AscentCommonSpringProfiles.PROFILE_ENV_LOCAL_INT,
-	AscentCommonSpringProfiles.PROFILE_REMOTE_CLIENT_IMPLS })
-@ContextConfiguration(inheritLocations = false, classes = { SharedDataWsClientConfig.class,
-		PartnerMockFrameworkTestConfig.class })
+@RunWith(SpringJUnit4ClassRunner.class)
+@TestExecutionListeners(inheritListeners = false, listeners = { DependencyInjectionTestExecutionListener.class,
+		DirtiesContextTestExecutionListener.class, TransactionalTestExecutionListener.class })
+@ActiveProfiles({ AscentCommonSpringProfiles.PROFILE_REMOTE_CLIENT_SIMULATORS })
+@ContextConfiguration(inheritLocations = false, classes = { PartnerMockFrameworkTestConfig.class,
+		SharedDataWsClientConfig.class})
 public class SharedDataWsClientImpl_UnitTest {
 
 	// @Autowired
