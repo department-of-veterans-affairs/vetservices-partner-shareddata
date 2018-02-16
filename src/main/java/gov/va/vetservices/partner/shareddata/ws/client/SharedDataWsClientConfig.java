@@ -33,8 +33,7 @@ import gov.va.ascent.framework.ws.client.WsClientSimulatorMarshallingInterceptor
  * Client.
  */
 @Configuration
-@ComponentScan(basePackages = {"gov.va.vetservices.partner.shareddata.ws.client" },
-excludeFilters = @Filter(Configuration.class))
+@ComponentScan(basePackages = { "gov.va.vetservices.partner.shareddata.ws.client" }, excludeFilters = @Filter(Configuration.class))
 @SuppressWarnings("PMD.ExcessiveImports")
 public class SharedDataWsClientConfig extends BaseWsClientConfig {
 
@@ -64,7 +63,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	/**
 	 * decides if jaxb validation logs errors.
 	 */
-	//annotation causes failure because apparently true is not a boolean value:
+	// annotation causes failure because apparently true is not a boolean value:
 	private final boolean logValidation = true;
 
 	/**
@@ -76,7 +75,6 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	// private or final
 	// CHECKSTYLE:OFF
 	@Bean
-	@Qualifier("sharedDataWsClient")
 	Jaxb2Marshaller sharedDataMarshaller() {
 		// CHECKSTYLE:ON
 		final Resource[] schemas = new Resource[] { new ClassPathResource(XSD) };
@@ -116,8 +114,8 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 			@Value("${vetservices-partner-shareddata.ws.client.endpoint}") final String endpoint,
 			@Value("${vetservices-partner-shareddata.ws.client.readTimeout:60000}") final int readTimeout,
 			@Value("${vetservices-partner-shareddata.ws.client.connectionTimeout:60000}") final int connectionTimeout)
-					throws KeyManagementException, UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException,
-					CertificateException, IOException {
+			throws KeyManagementException, UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException,
+			CertificateException, IOException {
 
 		return createDefaultWebServiceTemplate(endpoint, readTimeout, connectionTimeout, sharedDataMarshaller(),
 				sharedDataMarshaller(), new ClientInterceptor[] { sharedDataSecurityInterceptor() });
@@ -172,8 +170,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	@Bean
 	InterceptingExceptionTranslator sharedDataWsClientExceptionInterceptor() throws ClassNotFoundException {
 		// CHECKSTYLE:ON
-		return getInterceptingExceptionTranslator(
-				"gov.va.vetservices.partner.shareddata.ws.client.SharedDataWsClientException",
+		return getInterceptingExceptionTranslator("gov.va.vetservices.partner.shareddata.ws.client.SharedDataWsClientException",
 				PACKAGE_WSS_FOUNDATION_EXCEPTION);
 	}
 
@@ -188,10 +185,8 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	@Bean
 	BeanNameAutoProxyCreator sharedDataWsClientBeanProxy() {
 		// CHECKSTYLE:ON
-		return getBeanNameAutoProxyCreator(
-				new String[] { SharedDataWsClientImpl.BEAN_NAME, SharedDataWsClientSimulator.BEAN_NAME },
-				new String[] { "sharedDataWsClientExceptionInterceptor",
-				"sharedDataWsClientPerformanceLogMethodInterceptor" });
+		return getBeanNameAutoProxyCreator(new String[] { SharedDataWsClientImpl.BEAN_NAME, SharedDataWsClientSimulator.BEAN_NAME },
+				new String[] { "sharedDataWsClientExceptionInterceptor", "sharedDataWsClientPerformanceLogMethodInterceptor" });
 	}
 
 	/**
