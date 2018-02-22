@@ -1,0 +1,21 @@
+<!-- S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Header>
+      <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdUAB13ZWJsb2dpYy5hcHAuQ29ycG9yYXRlRGF0YUVBUgAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABjEwLjIuMAAA</work:WorkContext>
+   </S:Header>
+   <S:Body -->
+      <ns2:findStationAddressResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+         <return>
+            <addressLine1>Regional Office</addressLine1>
+            <addressLine2>John F. Kennedy Federal Building</addressLine2>
+            <addressLine3>Government Center</addressLine3>
+            <city>Boston</city>
+            <returnCode>SHAR00000</returnCode>
+            <returnMessage>Successful on Corporate</returnMessage>
+            <state>MA</state>
+            <zipCode>02203</zipCode>
+            <zipPlus4>0393</zipPlus4>
+            <zipSecondSuffix/>
+         </return>
+      </ns2:findStationAddressResponse>
+   <!-- /S:Body>
+</S:Envelope -->
