@@ -1,0 +1,1304 @@
+
+      <ns2:findIntakeSitesResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+         <return>
+            <numberOfRecords>0124</numberOfRecords>
+            <returnCode>SHAR 9999</returnCode>
+            <returnMessage>Records found</returnMessage>
+            <types>
+               <code>98283</code>
+               <name>AF Academy</name>
+            </types>
+            <types>
+               <code>123558</code>
+               <name>ANG Hub</name>
+            </types>
+            <types>
+               <code>98282</code>
+               <name>Aberdeen Proving Ground</name>
+            </types>
+            <types>
+               <code>123657</code>
+               <name>Al Udeid, Qatar</name>
+            </types>
+            <types>
+               <code>123578</code>
+               <name>Alameda Coast Guard</name>
+            </types>
+            <types>
+               <code>98284</code>
+               <name>Albuquerque</name>
+            </types>
+            <types>
+               <code>98285</code>
+               <name>Altus AFB*</name>
+            </types>
+            <types>
+               <code>98286</code>
+               <name>Anchorage</name>
+            </types>
+            <types>
+               <code>123603</code>
+               <name>Andersen AFB - Air Force / Guam</name>
+            </types>
+            <types>
+               <code>98287</code>
+               <name>Andrews AFB</name>
+            </types>
+            <types>
+               <code>98288</code>
+               <name>Annapolis NS/USNA</name>
+            </types>
+            <types>
+               <code>123585</code>
+               <name>Ansbach, Germany</name>
+            </types>
+            <types>
+               <code>123617</code>
+               <name>Arifjan, Kuwait</name>
+            </types>
+            <types>
+               <code>98289</code>
+               <name>Atlanta</name>
+            </types>
+            <types>
+               <code>123610</code>
+               <name>Aviano AB, Italy</name>
+            </types>
+            <types>
+               <code>123555</code>
+               <name>Bahrain / Kingdom of Bahrain</name>
+            </types>
+            <types>
+               <code>98290</code>
+               <name>Baltimore</name>
+            </types>
+            <types>
+               <code>123586</code>
+               <name>Bamberg, Germany</name>
+            </types>
+            <types>
+               <code>98292</code>
+               <name>Barksdale AFB</name>
+            </types>
+            <types>
+               <code>123568</code>
+               <name>Baumholder, Germany</name>
+            </types>
+            <types>
+               <code>123577</code>
+               <name>Beale AFB</name>
+            </types>
+            <types>
+               <code>125209</code>
+               <name>Beaufort Naval Hospital</name>
+            </types>
+            <types>
+               <code>123554</code>
+               <name>Benelux (Brussels/Schinnen/SHAPE)</name>
+            </types>
+            <types>
+               <code>98293</code>
+               <name>Bethesda NH</name>
+            </types>
+            <types>
+               <code>98294</code>
+               <name>Boise</name>
+            </types>
+            <types>
+               <code>98295</code>
+               <name>Bolling AFB</name>
+            </types>
+            <types>
+               <code>98296</code>
+               <name>Boston</name>
+            </types>
+            <types>
+               <code>123652</code>
+               <name>Buchanan</name>
+            </types>
+            <types>
+               <code>98299</code>
+               <name>Buckley AFB</name>
+            </types>
+            <types>
+               <code>98300</code>
+               <name>Buffalo</name>
+            </types>
+            <types>
+               <code>123631</code>
+               <name>CBC Gulfport</name>
+            </types>
+            <types>
+               <code>123607</code>
+               <name>Camp Atterbury (Demob)</name>
+            </types>
+            <types>
+               <code>98301</code>
+               <name>Camp Casey (Korea)</name>
+            </types>
+            <types>
+               <code>98302</code>
+               <name>Camp Lejeune</name>
+            </types>
+            <types>
+               <code>98303</code>
+               <name>Camp Pendleton*</name>
+            </types>
+            <types>
+               <code>123634</code>
+               <name>Camp Shelby (Demob)</name>
+            </types>
+            <types>
+               <code>123644</code>
+               <name>Cannon AFB</name>
+            </types>
+            <types>
+               <code>123639</code>
+               <name>Cape May Coast Guard</name>
+            </types>
+            <types>
+               <code>98305</code>
+               <name>Carlisle Barracks</name>
+            </types>
+            <types>
+               <code>98307</code>
+               <name>Charleston AFB</name>
+            </types>
+            <types>
+               <code>125210</code>
+               <name>Charleston Naval Health Clinic</name>
+            </types>
+            <types>
+               <code>98308</code>
+               <name>Cherry Point MCAS</name>
+            </types>
+            <types>
+               <code>98309</code>
+               <name>Cheyenne</name>
+            </types>
+            <types>
+               <code>98310</code>
+               <name>Chicago</name>
+            </types>
+            <types>
+               <code>98311</code>
+               <name>Cleveland</name>
+            </types>
+            <types>
+               <code>123582</code>
+               <name>Coast Guard Sector Miami</name>
+            </types>
+            <types>
+               <code>98314</code>
+               <name>Columbia</name>
+            </types>
+            <types>
+               <code>123632</code>
+               <name>Columbus AFB</name>
+            </types>
+            <types>
+               <code>98315</code>
+               <name>Corpus Christi NAS</name>
+            </types>
+            <types>
+               <code>98317</code>
+               <name>Dahlgren NSWC</name>
+            </types>
+            <types>
+               <code>98318</code>
+               <name>Davis-Monthan AFB</name>
+            </types>
+            <types>
+               <code>98319</code>
+               <name>Denver</name>
+            </types>
+            <types>
+               <code>98321</code>
+               <name>Des Moines</name>
+            </types>
+            <types>
+               <code>98322</code>
+               <name>Detroit</name>
+            </types>
+            <types>
+               <code>123627</code>
+               <name>Detroit Arsenal</name>
+            </types>
+            <types>
+               <code>98323</code>
+               <name>DiLorenzo-Pentagon</name>
+            </types>
+            <types>
+               <code>123608</code>
+               <name>Diego Garcia / BIOT</name>
+            </types>
+            <types>
+               <code>98324</code>
+               <name>Dover AFB</name>
+            </types>
+            <types>
+               <code>123623</code>
+               <name>Dugway Proving Grounds</name>
+            </types>
+            <types>
+               <code>98325</code>
+               <name>Dyess AFB</name>
+            </types>
+            <types>
+               <code>98326</code>
+               <name>Earle Naval Weapons (new)</name>
+            </types>
+            <types>
+               <code>123569</code>
+               <name>Edwards AFB</name>
+            </types>
+            <types>
+               <code>98327</code>
+               <name>Eglin AFB*</name>
+            </types>
+            <types>
+               <code>123547</code>
+               <name>Eielson AFB</name>
+            </types>
+            <types>
+               <code>123663</code>
+               <name>Ellsworth AFB</name>
+            </types>
+            <types>
+               <code>98328</code>
+               <name>Elmendorf AFB</name>
+            </types>
+            <types>
+               <code>98329</code>
+               <name>Everett NS</name>
+            </types>
+            <types>
+               <code>98330</code>
+               <name>Fairchild AFB*</name>
+            </types>
+            <types>
+               <code>98331</code>
+               <name>Fargo</name>
+            </types>
+            <types>
+               <code>98332</code>
+               <name>Fort Belvoir</name>
+            </types>
+            <types>
+               <code>98333</code>
+               <name>Fort Benning</name>
+            </types>
+            <types>
+               <code>98334</code>
+               <name>Fort Bliss</name>
+            </types>
+            <types>
+               <code>98335</code>
+               <name>Fort Bragg</name>
+            </types>
+            <types>
+               <code>98336</code>
+               <name>Fort Campbell</name>
+            </types>
+            <types>
+               <code>98337</code>
+               <name>Fort Carson</name>
+            </types>
+            <types>
+               <code>98338</code>
+               <name>Fort Detrick</name>
+            </types>
+            <types>
+               <code>98339</code>
+               <name>Fort Dix</name>
+            </types>
+            <types>
+               <code>98340</code>
+               <name>Fort Drum</name>
+            </types>
+            <types>
+               <code>98341</code>
+               <name>Fort Gordon</name>
+            </types>
+            <types>
+               <code>98342</code>
+               <name>Fort Hood</name>
+            </types>
+            <types>
+               <code>98343</code>
+               <name>Fort Irwin</name>
+            </types>
+            <types>
+               <code>98344</code>
+               <name>Fort Jackson</name>
+            </types>
+            <types>
+               <code>98345</code>
+               <name>Fort Knox</name>
+            </types>
+            <types>
+               <code>98346</code>
+               <name>Fort Leavenworth</name>
+            </types>
+            <types>
+               <code>98347</code>
+               <name>Fort Lee</name>
+            </types>
+            <types>
+               <code>98348</code>
+               <name>Fort Lewis</name>
+            </types>
+            <types>
+               <code>98349</code>
+               <name>Fort Meade</name>
+            </types>
+            <types>
+               <code>98351</code>
+               <name>Fort Polk</name>
+            </types>
+            <types>
+               <code>98352</code>
+               <name>Fort Richardson</name>
+            </types>
+            <types>
+               <code>98353</code>
+               <name>Fort Riley KS</name>
+            </types>
+            <types>
+               <code>98354</code>
+               <name>Fort Rucker</name>
+            </types>
+            <types>
+               <code>98355</code>
+               <name>Fort Sam Houston</name>
+            </types>
+            <types>
+               <code>98357</code>
+               <name>Fort Sill</name>
+            </types>
+            <types>
+               <code>98358</code>
+               <name>Fort Stewart</name>
+            </types>
+            <types>
+               <code>123622</code>
+               <name>Ft Devens</name>
+            </types>
+            <types>
+               <code>123640</code>
+               <name>Ft Hamilton</name>
+            </types>
+            <types>
+               <code>123668</code>
+               <name>Ft Worth (ANG Hub)</name>
+            </types>
+            <types>
+               <code>123666</code>
+               <name>Ft. Bliss</name>
+            </types>
+            <types>
+               <code>98359</code>
+               <name>Ft. Eustis</name>
+            </types>
+            <types>
+               <code>98360</code>
+               <name>Ft. Harrison</name>
+            </types>
+            <types>
+               <code>98361</code>
+               <name>Ft. Huachuca</name>
+            </types>
+            <types>
+               <code>98362</code>
+               <name>Ft. Leonard Wood</name>
+            </types>
+            <types>
+               <code>123682</code>
+               <name>Ft. McCoy</name>
+            </types>
+            <types>
+               <code>123550</code>
+               <name>Ft. Wainwright</name>
+            </types>
+            <types>
+               <code>123588</code>
+               <name>Geilenkirchen, Germany</name>
+            </types>
+            <types>
+               <code>98363</code>
+               <name>Goodfellow AFB</name>
+            </types>
+            <types>
+               <code>123635</code>
+               <name>Grand Forks AFB</name>
+            </types>
+            <types>
+               <code>98364</code>
+               <name>Great Lakes NTC</name>
+            </types>
+            <types>
+               <code>123584</code>
+               <name>Guantanamo Bay / Cuba</name>
+            </types>
+            <types>
+               <code>123620</code>
+               <name>Hanscom AFB</name>
+            </types>
+            <types>
+               <code>98365</code>
+               <name>Hartford</name>
+            </types>
+            <types>
+               <code>123561</code>
+               <name>Heidelberg Germany</name>
+            </types>
+            <types>
+               <code>98366</code>
+               <name>Hickam AFB</name>
+            </types>
+            <types>
+               <code>98367</code>
+               <name>Hill AFB</name>
+            </types>
+            <types>
+               <code>123643</code>
+               <name>Holloman AFB</name>
+            </types>
+            <types>
+               <code>98368</code>
+               <name>Homeland Security (HS)</name>
+            </types>
+            <types>
+               <code>98369</code>
+               <name>Honolulu</name>
+            </types>
+            <types>
+               <code>98370</code>
+               <name>Houston</name>
+            </types>
+            <types>
+               <code>123594</code>
+               <name>Hunter AAF</name>
+            </types>
+            <types>
+               <code>98371</code>
+               <name>Huntington</name>
+            </types>
+            <types>
+               <code>98372</code>
+               <name>Hurlburt Field</name>
+            </types>
+            <types>
+               <code>123665</code>
+               <name>Incirlik AB, Turkey</name>
+            </types>
+            <types>
+               <code>98374</code>
+               <name>Indianapolis</name>
+            </types>
+            <types>
+               <code>123659</code>
+               <name>JB Charleston</name>
+            </types>
+            <types>
+               <code>123660</code>
+               <name>JB Charleston-AB</name>
+            </types>
+            <types>
+               <code>123674</code>
+               <name>JB Langley-Eustis</name>
+            </types>
+            <types>
+               <code>123679</code>
+               <name>JB Lewis-McChord</name>
+            </types>
+            <types>
+               <code>123605</code>
+               <name>JB Pearl Harbor-Hickam</name>
+            </types>
+            <types>
+               <code>123676</code>
+               <name>JBMH-Henderson Hall</name>
+            </types>
+            <types>
+               <code>123675</code>
+               <name>JBMH-Myer</name>
+            </types>
+            <types>
+               <code>98375</code>
+               <name>Jackson</name>
+            </types>
+            <types>
+               <code>98376</code>
+               <name>Jacksonville NAS</name>
+            </types>
+            <types>
+               <code>123641</code>
+               <name>Joint Base McGuire-Dix (Demob)</name>
+            </types>
+            <types>
+               <code>123560</code>
+               <name>Kaiserslautern Germany</name>
+            </types>
+            <types>
+               <code>98377</code>
+               <name>Keesler AFB</name>
+            </types>
+            <types>
+               <code>98378</code>
+               <name>Key West CG</name>
+            </types>
+            <types>
+               <code>98379</code>
+               <name>Key West NAS</name>
+            </types>
+            <types>
+               <code>98380</code>
+               <name>Kings Bay NAS</name>
+            </types>
+            <types>
+               <code>98381</code>
+               <name>Kirtland AFB</name>
+            </types>
+            <types>
+               <code>98382</code>
+               <name>Kitsap NS* (formerly Bremerton NB)</name>
+            </types>
+            <types>
+               <code>123615</code>
+               <name>Kunsan AB, Korea</name>
+            </types>
+            <types>
+               <code>98383</code>
+               <name>Lackland AFB</name>
+            </types>
+            <types>
+               <code>123656</code>
+               <name>Lajes Field</name>
+            </types>
+            <types>
+               <code>98384</code>
+               <name>Lakehurst (Southern NJ)</name>
+            </types>
+            <types>
+               <code>123571</code>
+               <name>Landstuhl Reg Med Ctr</name>
+            </types>
+            <types>
+               <code>105142</code>
+               <name>Langley Air Force Base</name>
+            </types>
+            <types>
+               <code>123670</code>
+               <name>Laughlin AFB</name>
+            </types>
+            <types>
+               <code>98387</code>
+               <name>Lemoore NAS</name>
+            </types>
+            <types>
+               <code>98388</code>
+               <name>Lincoln</name>
+            </types>
+            <types>
+               <code>98390</code>
+               <name>Little Rock</name>
+            </types>
+            <types>
+               <code>98391</code>
+               <name>Little Rock AFB</name>
+            </types>
+            <types>
+               <code>98392</code>
+               <name>Los Angeles</name>
+            </types>
+            <types>
+               <code>123563</code>
+               <name>Los Angeles AFB</name>
+            </types>
+            <types>
+               <code>98393</code>
+               <name>Louisville</name>
+            </types>
+            <types>
+               <code>123559</code>
+               <name>Luke AFB</name>
+            </types>
+            <types>
+               <code>98400</code>
+               <name>MC Recruit Depot</name>
+            </types>
+            <types>
+               <code>123574</code>
+               <name>MCAGTC 29 Palms</name>
+            </types>
+            <types>
+               <code>123662</code>
+               <name>MCAS Beaufort</name>
+            </types>
+            <types>
+               <code>123556</code>
+               <name>MCAS Yuma</name>
+            </types>
+            <types>
+               <code>98401</code>
+               <name>MCB Hawaii</name>
+            </types>
+            <types>
+               <code>123678</code>
+               <name>MCB Quantico</name>
+            </types>
+            <types>
+               <code>123596</code>
+               <name>MCLB Albany</name>
+            </types>
+            <types>
+               <code>123565</code>
+               <name>MCRD San Diego</name>
+            </types>
+            <types>
+               <code>98394</code>
+               <name>MacDill AFB</name>
+            </types>
+            <types>
+               <code>98395</code>
+               <name>Malmstrom AFB</name>
+            </types>
+            <types>
+               <code>98396</code>
+               <name>Manchester</name>
+            </types>
+            <types>
+               <code>98397</code>
+               <name>Manila</name>
+            </types>
+            <types>
+               <code>98398</code>
+               <name>Maxwell AFB</name>
+            </types>
+            <types>
+               <code>98399</code>
+               <name>Mayport NS*</name>
+            </types>
+            <types>
+               <code>98402</code>
+               <name>McChord AFB</name>
+            </types>
+            <types>
+               <code>98403</code>
+               <name>McConnell AFB</name>
+            </types>
+            <types>
+               <code>98404</code>
+               <name>McGuire AFB</name>
+            </types>
+            <types>
+               <code>123593</code>
+               <name>Miami</name>
+            </types>
+            <types>
+               <code>98405</code>
+               <name>Miami CG</name>
+            </types>
+            <types>
+               <code>98406</code>
+               <name>Milwaukee</name>
+            </types>
+            <types>
+               <code>123636</code>
+               <name>Minot AFB</name>
+            </types>
+            <types>
+               <code>98407</code>
+               <name>Miramar MCAS</name>
+            </types>
+            <types>
+               <code>98408</code>
+               <name>Montgomery</name>
+            </types>
+            <types>
+               <code>123591</code>
+               <name>Moody AFB</name>
+            </types>
+            <types>
+               <code>98409</code>
+               <name>Mountain Home AFB</name>
+            </types>
+            <types>
+               <code>98410</code>
+               <name>Muskogee</name>
+            </types>
+            <types>
+               <code>123647</code>
+               <name>NAS Fallon / NV</name>
+            </types>
+            <types>
+               <code>123669</code>
+               <name>NAS JRB Fort Worth</name>
+            </types>
+            <types>
+               <code>123618</code>
+               <name>NAS JRB New Orleans</name>
+            </types>
+            <types>
+               <code>123671</code>
+               <name>NAS Kingsville</name>
+            </types>
+            <types>
+               <code>123633</code>
+               <name>NAS Meridian</name>
+            </types>
+            <types>
+               <code>123602</code>
+               <name>NAVBASE Guam Barrigada / Guam</name>
+            </types>
+            <types>
+               <code>123572</code>
+               <name>NAWS China Lake</name>
+            </types>
+            <types>
+               <code>123557</code>
+               <name>NB San Diego</name>
+            </types>
+            <types>
+               <code>123658</code>
+               <name>NS Newport</name>
+            </types>
+            <types>
+               <code>98420</code>
+               <name>NSA</name>
+            </types>
+            <types>
+               <code>123664</code>
+               <name>NSA Midsouth Memphis</name>
+            </types>
+            <types>
+               <code>123601</code>
+               <name>NSA Souda Bay / Greece</name>
+            </types>
+            <types>
+               <code>123637</code>
+               <name>NSY Portsmouth</name>
+            </types>
+            <types>
+               <code>123611</code>
+               <name>Naples / ITALY</name>
+            </types>
+            <types>
+               <code>98412</code>
+               <name>Nashville</name>
+            </types>
+            <types>
+               <code>123745</code>
+               <name>National Capital Region (NCR)</name>
+            </types>
+            <types>
+               <code>123638</code>
+               <name>Naval Base Ventura County</name>
+            </types>
+            <types>
+               <code>123646</code>
+               <name>Nellis AFB, NV/Creech AFB, NV</name>
+            </types>
+            <types>
+               <code>98414</code>
+               <name>New London NSB</name>
+            </types>
+            <types>
+               <code>98415</code>
+               <name>New Orleans</name>
+            </types>
+            <types>
+               <code>98416</code>
+               <name>New River MCAS</name>
+            </types>
+            <types>
+               <code>98417</code>
+               <name>New York</name>
+            </types>
+            <types>
+               <code>98418</code>
+               <name>Newark</name>
+            </types>
+            <types>
+               <code>98419</code>
+               <name>Norfolk NB</name>
+            </types>
+            <types>
+               <code>123667</code>
+               <name>North Ft. Hood</name>
+            </types>
+            <types>
+               <code>98422</code>
+               <name>Oakland</name>
+            </types>
+            <types>
+               <code>98424</code>
+               <name>Offutt AFB</name>
+            </types>
+            <types>
+               <code>123616</code>
+               <name>Osan AB, Korea</name>
+            </types>
+            <types>
+               <code>123685</code>
+               <name>Other - AGR</name>
+            </types>
+            <types>
+               <code>123686</code>
+               <name>Other - Not on List</name>
+            </types>
+            <types>
+               <code>98425</code>
+               <name>Patrick AFB</name>
+            </types>
+            <types>
+               <code>98426</code>
+               <name>Patuxent River NAS</name>
+            </types>
+            <types>
+               <code>98427</code>
+               <name>Pearl Harbor NB</name>
+            </types>
+            <types>
+               <code>98428</code>
+               <name>Pensacola NAS</name>
+            </types>
+            <types>
+               <code>98429</code>
+               <name>Pensacola NH</name>
+            </types>
+            <types>
+               <code>125211</code>
+               <name>Pentagon In-Take Site</name>
+            </types>
+            <types>
+               <code>123579</code>
+               <name>Petaluma Coast Guard</name>
+            </types>
+            <types>
+               <code>98430</code>
+               <name>Peterson AFB</name>
+            </types>
+            <types>
+               <code>98431</code>
+               <name>Philadelphia</name>
+            </types>
+            <types>
+               <code>98432</code>
+               <name>Phoenix</name>
+            </types>
+            <types>
+               <code>98433</code>
+               <name>Pittsburgh</name>
+            </types>
+            <types>
+               <code>98435</code>
+               <name>Portland</name>
+            </types>
+            <types>
+               <code>98436</code>
+               <name>Portsmouth NAS</name>
+            </types>
+            <types>
+               <code>98437</code>
+               <name>Portsmouth NH</name>
+            </types>
+            <types>
+               <code>123576</code>
+               <name>Presidio of Monterey</name>
+            </types>
+            <types>
+               <code>98438</code>
+               <name>Providence</name>
+            </types>
+            <types>
+               <code>123598</code>
+               <name>RAF Alconbury, UK</name>
+            </types>
+            <types>
+               <code>123597</code>
+               <name>RAF Lakenheath, UK</name>
+            </types>
+            <types>
+               <code>123599</code>
+               <name>RAF Menwith Hill, UK</name>
+            </types>
+            <types>
+               <code>123600</code>
+               <name>RAF Mildenhall, UK</name>
+            </types>
+            <types>
+               <code>123589</code>
+               <name>Ramstein AB, Germany</name>
+            </types>
+            <types>
+               <code>98439</code>
+               <name>Randolph AFB</name>
+            </types>
+            <types>
+               <code>98440</code>
+               <name>Redstone Arsenal</name>
+            </types>
+            <types>
+               <code>98441</code>
+               <name>Reno</name>
+            </types>
+            <types>
+               <code>98442</code>
+               <name>Roanoke</name>
+            </types>
+            <types>
+               <code>123595</code>
+               <name>Robins AFB</name>
+            </types>
+            <types>
+               <code>123606</code>
+               <name>Rock Island</name>
+            </types>
+            <types>
+               <code>123573</code>
+               <name>Rota / SPAIN</name>
+            </types>
+            <types>
+               <code>98443</code>
+               <name>Salt Lake City</name>
+            </types>
+            <types>
+               <code>98444</code>
+               <name>San Diego</name>
+            </types>
+            <types>
+               <code>98450</code>
+               <name>San Francisco</name>
+            </types>
+            <types>
+               <code>98451</code>
+               <name>San Juan</name>
+            </types>
+            <types>
+               <code>98446</code>
+               <name>Schofield Barracks</name>
+            </types>
+            <types>
+               <code>98447</code>
+               <name>Schriever AFB</name>
+            </types>
+            <types>
+               <code>123570</code>
+               <name>Schweinfurt Germany</name>
+            </types>
+            <types>
+               <code>98448</code>
+               <name>Scotia ND(now Saratoga Springs Transition Station)</name>
+            </types>
+            <types>
+               <code>98449</code>
+               <name>Scott AFB</name>
+            </types>
+            <types>
+               <code>98452</code>
+               <name>Seattle</name>
+            </types>
+            <types>
+               <code>98454</code>
+               <name>Seymour Johnson AFB</name>
+            </types>
+            <types>
+               <code>98455</code>
+               <name>Shaw AFB</name>
+            </types>
+            <types>
+               <code>98456</code>
+               <name>Sheppard AFB</name>
+            </types>
+            <types>
+               <code>123612</code>
+               <name>Sigonella / ITALY</name>
+            </types>
+            <types>
+               <code>98457</code>
+               <name>Sioux Falls</name>
+            </types>
+            <types>
+               <code>123587</code>
+               <name>Spangdahlem AB, Germany</name>
+            </types>
+            <types>
+               <code>98459</code>
+               <name>St. Louis</name>
+            </types>
+            <types>
+               <code>98460</code>
+               <name>St. Paul</name>
+            </types>
+            <types>
+               <code>98461</code>
+               <name>St. Petersburg</name>
+            </types>
+            <types>
+               <code>123567</code>
+               <name>Stuttgart Germany</name>
+            </types>
+            <types>
+               <code>123673</code>
+               <name>Texas City Coast Guard</name>
+            </types>
+            <types>
+               <code>98463</code>
+               <name>Tinker AFB</name>
+            </types>
+            <types>
+               <code>98464</code>
+               <name>Togus</name>
+            </types>
+            <types>
+               <code>98465</code>
+               <name>Travis AFB</name>
+            </types>
+            <types>
+               <code>98466</code>
+               <name>Tripler AMC</name>
+            </types>
+            <types>
+               <code>98467</code>
+               <name>Tyndall AFB</name>
+            </types>
+            <types>
+               <code>123653</code>
+               <name>USCG Air Station Ramey</name>
+            </types>
+            <types>
+               <code>123642</code>
+               <name>USCG Atlantic City</name>
+            </types>
+            <types>
+               <code>123624</code>
+               <name>USCG Baltimore</name>
+            </types>
+            <types>
+               <code>123564</code>
+               <name>USCG Base Los Angeles</name>
+            </types>
+            <types>
+               <code>123655</code>
+               <name>USCG Borinquen</name>
+            </types>
+            <types>
+               <code>123621</code>
+               <name>USCG Boston</name>
+            </types>
+            <types>
+               <code>123648</code>
+               <name>USCG Buffalo</name>
+            </types>
+            <types>
+               <code>123661</code>
+               <name>USCG Charleston</name>
+            </types>
+            <types>
+               <code>123580</code>
+               <name>USCG Clearwater</name>
+            </types>
+            <types>
+               <code>123650</code>
+               <name>USCG Cleveland</name>
+            </types>
+            <types>
+               <code>123672</code>
+               <name>USCG Corpus Christi</name>
+            </types>
+            <types>
+               <code>123626</code>
+               <name>USCG Detroit</name>
+            </types>
+            <types>
+               <code>123628</code>
+               <name>USCG Grand Haven</name>
+            </types>
+            <types>
+               <code>123604</code>
+               <name>USCG Honolulu</name>
+            </types>
+            <types>
+               <code>123581</code>
+               <name>USCG Humboldt Bay</name>
+            </types>
+            <types>
+               <code>123592</code>
+               <name>USCG Jacksonville</name>
+            </types>
+            <types>
+               <code>123545</code>
+               <name>USCG Juneau</name>
+            </types>
+            <types>
+               <code>123546</code>
+               <name>USCG Ketchikan</name>
+            </types>
+            <types>
+               <code>123548</code>
+               <name>USCG Kodiak</name>
+            </types>
+            <types>
+               <code>123649</code>
+               <name>USCG Long Island</name>
+            </types>
+            <types>
+               <code>123684</code>
+               <name>USCG Martinsburg</name>
+            </types>
+            <types>
+               <code>123683</code>
+               <name>USCG Milwaukee</name>
+            </types>
+            <types>
+               <code>123551</code>
+               <name>USCG Mobile</name>
+            </types>
+            <types>
+               <code>123619</code>
+               <name>USCG New Orleans</name>
+            </types>
+            <types>
+               <code>123651</code>
+               <name>USCG Portland</name>
+            </types>
+            <types>
+               <code>123681</code>
+               <name>USCG Portsmouth</name>
+            </types>
+            <types>
+               <code>123677</code>
+               <name>USCG Recruiting Command</name>
+            </types>
+            <types>
+               <code>123625</code>
+               <name>USCG SW Harbor</name>
+            </types>
+            <types>
+               <code>123566</code>
+               <name>USCG San Diego</name>
+            </types>
+            <types>
+               <code>123583</code>
+               <name>USCG Savannah</name>
+            </types>
+            <types>
+               <code>123680</code>
+               <name>USCG Seattle</name>
+            </types>
+            <types>
+               <code>123549</code>
+               <name>USCG Sitka</name>
+            </types>
+            <types>
+               <code>123630</code>
+               <name>USCG St Louis</name>
+            </types>
+            <types>
+               <code>123654</code>
+               <name>USCG Station San Juan</name>
+            </types>
+            <types>
+               <code>123629</code>
+               <name>USCG Su Ste Marie</name>
+            </types>
+            <types>
+               <code>123552</code>
+               <name>USCG Valdez</name>
+            </types>
+            <types>
+               <code>125212</code>
+               <name>VAMC Biloxi</name>
+            </types>
+            <types>
+               <code>98468</code>
+               <name>Vance AFB</name>
+            </types>
+            <types>
+               <code>123575</code>
+               <name>Vandenberg AFB</name>
+            </types>
+            <types>
+               <code>123609</code>
+               <name>Vicenza Italy</name>
+            </types>
+            <types>
+               <code>123562</code>
+               <name>Vilseck Germany</name>
+            </types>
+            <types>
+               <code>98469</code>
+               <name>Waco</name>
+            </types>
+            <types>
+               <code>98470</code>
+               <name>Walter Reed AMC - C&amp;P</name>
+            </types>
+            <types>
+               <code>98471</code>
+               <name>Warren AFB (Cheyenne)</name>
+            </types>
+            <types>
+               <code>98473</code>
+               <name>West Point</name>
+            </types>
+            <types>
+               <code>98474</code>
+               <name>Whidbey Island NAS</name>
+            </types>
+            <types>
+               <code>98476</code>
+               <name>White River Junction</name>
+            </types>
+            <types>
+               <code>123645</code>
+               <name>White Sands</name>
+            </types>
+            <types>
+               <code>98475</code>
+               <name>Whiteman AFB</name>
+            </types>
+            <types>
+               <code>98477</code>
+               <name>Whiting Field</name>
+            </types>
+            <types>
+               <code>98478</code>
+               <name>Wichita</name>
+            </types>
+            <types>
+               <code>123590</code>
+               <name>Wiesbaden Germany</name>
+            </types>
+            <types>
+               <code>98480</code>
+               <name>Wilmington</name>
+            </types>
+            <types>
+               <code>98481</code>
+               <name>Winston-Salem</name>
+            </types>
+            <types>
+               <code>98482</code>
+               <name>Wright-Patterson AFB</name>
+            </types>
+            <types>
+               <code>123613</code>
+               <name>Yokosuka / JAPAN</name>
+            </types>
+            <types>
+               <code>123614</code>
+               <name>Yokota AB, Japan</name>
+            </types>
+            <types>
+               <code>98483</code>
+               <name>Yongsan (Korea)</name>
+            </types>
+            <types>
+               <code>123553</code>
+               <name>Yuma Proving Grounds</name>
+            </types>
+         </return>
+      </ns2:findIntakeSitesResponse>
