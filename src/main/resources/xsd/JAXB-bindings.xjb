@@ -8,6 +8,8 @@
 	<jaxb:globalBindings fixedAttributeAsConstantProperty="true">
 		<jaxb:serializable uid="0"/>
 		<xjc:superClass	name="gov.va.ascent.framework.transfer.AbstractTransferObject" />
+		<xjc:simple/>
+		<xjc:serializable uid="1"/>
 		<jaxb:javaType name="java.util.Date" xmlType="xs:date"
 		      parseMethod="gov.va.ascent.framework.transfer.jaxb.adapters.DateAdapter.parseDate"
 		      printMethod="gov.va.ascent.framework.transfer.jaxb.adapters.DateAdapter.printDate"

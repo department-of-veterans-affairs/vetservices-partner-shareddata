@@ -17,12 +17,6 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddre
 @SuppressWarnings("squid:S1609")
 public interface SharedDataWsClient {
 
-	/** Spring profile for SharedData wsclient remote client implementation. */
-	String PROFILE_SHAREDDATAWSCLIENT_REMOTE_CLIENT_IMPL = "shareddatawsclient_remote_client_impl";
-
-	/** Spring profile for SharedData wsclient remote client simulator. */
-	String PROFILE_SHAREDDATAWSCLIENT_REMOTE_CLIENT_SIM = "shareddatawsclient_remote_client_sim";
-
 	/**
 	 * @param findStationAddressRequest
 	 *            The SharedData Web Service FindStationAddress request entity

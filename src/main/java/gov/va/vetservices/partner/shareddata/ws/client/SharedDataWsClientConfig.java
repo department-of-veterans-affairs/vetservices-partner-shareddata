@@ -6,8 +6,8 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import java.util.HashMap;
-import java.util.Map;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,8 +25,8 @@ import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
 
 import gov.va.ascent.framework.exception.InterceptingExceptionTranslator;
 import gov.va.ascent.framework.log.PerformanceLogMethodInterceptor;
+import gov.va.ascent.framework.util.Defense;
 import gov.va.ascent.framework.ws.client.BaseWsClientConfig;
-import gov.va.ascent.framework.ws.client.WsClientSimulatorMarshallingInterceptor;
 
 /**
  * This class represents the Spring configuration for the SharedData Web Service
@@ -43,28 +43,43 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	/** the XSD for this web service */
 	private static final String XSD = "xsd/ShareStandardDataWebService.xsd";
 
+	/** Exception class for exception interceptor */
+	private static final String DEFAULT_EXCEPTION_CLASS =
+			"gov.va.vetservices.partner.shareddata.ws.client.SharedDataWsClientException";
+
 	// ####### values are from /resource/config/*.properties ######
 	/** The username. */
 	@Value("${vetservices-partner-shareddata.ws.client.username}")
-	private String bgsUsername;
+	private String username;
 
 	/** The password. */
 	@Value("${vetservices-partner-shareddata.ws.client.password}")
-	private String bgsPassword;
+	private String password;
 
 	/** The va application name. */
 	@Value("${vetservices-partner-shareddata.ws.client.vaApplicationName}")
-	private String bgsVaApplicationName;
+	private String vaApplicationName;
 
 	/** VA STN_ID value */
 	@Value("${vetservices-partner-shareddata.ws.client.stationId}")
-	private String bgsStationId;
+	private String stationId;
 
 	/**
 	 * decides if jaxb validation logs errors.
 	 */
-	// annotation causes failure because apparently true is not a boolean value:
-	private final boolean logValidation = true;
+	@Value("${vetservices-partner-shareddata.ws.client.logValidation:true}")
+	private boolean logValidation;
+
+	/**
+	 * Executed after dependency injection is done to validate initialization.
+	 */
+	@PostConstruct
+	public final void postConstruct() {
+		Defense.hasText(username, "Partner username cannot be empty.");
+		Defense.hasText(password, "Partner password cannot be empty.");
+		Defense.hasText(vaApplicationName, "Partner vaApplicationName cannot be empty.");
+		Defense.hasText(stationId, "Partner stationId cannot be empty.");
+	}
 
 	/**
 	 * WS Client object marshaller
@@ -75,6 +90,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	// private or final
 	// CHECKSTYLE:OFF
 	@Bean
+	@Qualifier("sharedDataMarshaller")
 	Jaxb2Marshaller sharedDataMarshaller() {
 		// CHECKSTYLE:ON
 		final Resource[] schemas = new Resource[] { new ClassPathResource(XSD) };
@@ -108,14 +124,13 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	// private or final
 	// CHECKSTYLE:OFF
 	@Bean
-	@Qualifier("sharedDataWsClient.axiom")
 	WebServiceTemplate sharedDataWsClientAxiomTemplate(
 			// CHECKSTYLE:ON
 			@Value("${vetservices-partner-shareddata.ws.client.endpoint}") final String endpoint,
 			@Value("${vetservices-partner-shareddata.ws.client.readTimeout:60000}") final int readTimeout,
-			@Value("${vetservices-partner-shareddata.ws.client.connectionTimeout:60000}") final int connectionTimeout)
-			throws KeyManagementException, UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException,
-			CertificateException, IOException {
+			@Value("${vetservices-partner-shareddata.ws.client.connectionTimeout:60000}") final int connectionTimeout) {
+
+		Defense.hasText(endpoint, "sharedDataWsClientAxiomTemplate endpoint cannot be empty.");
 
 		return createDefaultWebServiceTemplate(endpoint, readTimeout, connectionTimeout, sharedDataMarshaller(),
 				sharedDataMarshaller(), new ClientInterceptor[] { sharedDataSecurityInterceptor() });
@@ -132,7 +147,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	@Bean
 	Wss4jSecurityInterceptor sharedDataSecurityInterceptor() {
 		// CHECKSTYLE:ON
-		return getVAServiceWss4jSecurityInterceptor(bgsUsername, bgsPassword, bgsVaApplicationName, bgsStationId);
+		return getVAServiceWss4jSecurityInterceptor(username, password, vaApplicationName, stationId);
 	}
 
 	/**
@@ -170,8 +185,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	@Bean
 	InterceptingExceptionTranslator sharedDataWsClientExceptionInterceptor() throws ClassNotFoundException {
 		// CHECKSTYLE:ON
-		return getInterceptingExceptionTranslator("gov.va.vetservices.partner.shareddata.ws.client.SharedDataWsClientException",
-				PACKAGE_WSS_FOUNDATION_EXCEPTION);
+		return getInterceptingExceptionTranslator(DEFAULT_EXCEPTION_CLASS, PACKAGE_WSS_FOUNDATION_EXCEPTION);
 	}
 
 	/**
@@ -185,44 +199,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	@Bean
 	BeanNameAutoProxyCreator sharedDataWsClientBeanProxy() {
 		// CHECKSTYLE:ON
-		return getBeanNameAutoProxyCreator(new String[] { SharedDataWsClientImpl.BEAN_NAME, SharedDataWsClientSimulator.BEAN_NAME },
+		return getBeanNameAutoProxyCreator(new String[] { SharedDataWsClientImpl.BEAN_NAME },
 				new String[] { "sharedDataWsClientExceptionInterceptor", "sharedDataWsClientPerformanceLogMethodInterceptor" });
 	}
-
-	/**
-	 * Ws client simulator marshalling interceptor, so that requests and responses
-	 * to the simulator are passed through the marshaller to ensure we don't have
-	 * any Java-to-XML conversion surprises if we leverage simulators heavily in
-	 * development and then start using real web services later on.
-	 *
-	 * @return the ws client simulator marshalling interceptor
-	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method
-	// private or final
-	// CHECKSTYLE:OFF
-	@Bean
-	WsClientSimulatorMarshallingInterceptor sharedDataWsClientSimulatorMarshallingInterceptor() {
-		// CHECKSTYLE:ON
-		final Map<String, Jaxb2Marshaller> marshallerForPackageMap = new HashMap<>();
-		marshallerForPackageMap.put(TRANSFER_PACKAGE, sharedDataMarshaller());
-		return new WsClientSimulatorMarshallingInterceptor(marshallerForPackageMap);
-	}
-
-	/**
-	 * A standard bean proxy to apply interceptors to the web service client
-	 * simulations that we don't need/want to apply to real web service client
-	 * impls.
-	 *
-	 * @return the bean name auto proxy creator
-	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method
-	// private or final
-	// CHECKSTYLE:OFF
-	@Bean
-	BeanNameAutoProxyCreator sharedDataWsClientSimulatorProxy() {
-		// CHECKSTYLE:ON
-		return getBeanNameAutoProxyCreator(new String[] { SharedDataWsClientSimulator.BEAN_NAME },
-				new String[] { "sharedDataWsClientSimulatorMarshallingInterceptor" });
-	}
-
 }

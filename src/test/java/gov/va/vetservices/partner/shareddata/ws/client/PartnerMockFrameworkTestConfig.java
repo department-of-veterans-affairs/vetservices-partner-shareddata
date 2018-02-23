@@ -1,5 +1,4 @@
-
-package gov.va.vetservices.partner.mock.framework;
+package gov.va.vetservices.partner.shareddata.ws.client;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,7 +13,7 @@ import gov.va.ascent.framework.config.BaseYamlConfig;
  * @author jshrader
  */
 @Configuration
-@Profile({ AscentCommonSpringProfiles.PROFILE_REMOTE_CLIENT_SIMULATORS })
+@Profile(AscentCommonSpringProfiles.PROFILE_REMOTE_CLIENT_SIMULATORS)
 public class PartnerMockFrameworkTestConfig extends BaseYamlConfig
 {
 
