@@ -64,24 +64,24 @@ public class RemoteServiceCallImplTest extends AbstractSharedDataTest {
 		assertNotNull("FAIL callPartnerService cannot be null.", callPartnerService);
 
 		mockWebServicesServer = MockWebServiceServer.createServer(axiomWebServiceTemplate);
-		assertNotNull("FAIL mockWebServicesServer cannot be null.");
+		assertNotNull("FAIL mockWebServicesServer cannot be null.", mockWebServicesServer);
 	}
 
 	@Test
 	public void testCallRemoteService() {
 		// call the impl declared by the current @ActiveProfiles
 
-		FindStationAddress request =
-				super.makeFindStationAddressRequest(SharedDataRemoteServiceCallMock.FIND_ADDRESS_PREFACE + TEST_VALID_STN_NBR);
+		FindStationAddress request = super.makeFindStationAddressRequest(TEST_VALID_STN_NBR);
 		final Source requestPayload =
 				marshalMockRequest((Jaxb2Marshaller) axiomWebServiceTemplate.getMarshaller(), request, request.getClass());
-		final Source responsePayload = readMockResponseByKey(request.getStationNumber());
+		final Source responsePayload =
+				readMockResponseByKey(SharedDataRemoteServiceCallMock.FIND_ADDRESS_PREFACE + request.getStationNumber());
 
 		mockWebServicesServer.expect(payload(requestPayload)).andRespond(withPayload(responsePayload));
 
 		/* attempt to call partner will ALWAYS fail - test for specific exception classes */
 		try {
-			callPartnerService.callRemoteService(axiomWebServiceTemplate, request, request.getClass());
+			callPartnerService.callRemoteService(axiomWebServiceTemplate, request, FindStationAddress.class);
 
 			mockWebServicesServer.verify();
 

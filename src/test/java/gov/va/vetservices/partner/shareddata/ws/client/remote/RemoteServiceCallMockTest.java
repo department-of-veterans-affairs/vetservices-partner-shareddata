@@ -13,11 +13,9 @@ public class RemoteServiceCallMockTest extends AbstractSharedDataTest {
 
 	private final static String TEST_VALID_STN_NBR = "301";
 
-	private SharedDataRemoteServiceCallMock mock;
-
 	@Test
 	public void testGetKeyForMockResponse() {
-		mock = new SharedDataRemoteServiceCallMock();
+		SharedDataRemoteServiceCallMock mock = new SharedDataRemoteServiceCallMock();
 		FindStationAddress request = super.makeFindStationAddressRequest(TEST_VALID_STN_NBR);
 		String keyForMockResponse = mock.getKeyForMockResponse(request);
 
@@ -27,8 +25,8 @@ public class RemoteServiceCallMockTest extends AbstractSharedDataTest {
 
 	@Test
 	public void testGetKeyForMockResponse_NullRequest() {
-		mock = new SharedDataRemoteServiceCallMock();
-		FindStationAddress request = super.makeFindStationAddressRequest(null);
+		SharedDataRemoteServiceCallMock mock = new SharedDataRemoteServiceCallMock();
+		FindStationAddress request = null;
 
 		String keyForMockResponse = null;
 
@@ -36,9 +34,9 @@ public class RemoteServiceCallMockTest extends AbstractSharedDataTest {
 			keyForMockResponse = mock.getKeyForMockResponse(request);
 		} catch (Throwable e) {
 			e.printStackTrace();
-			assertTrue("Correct excepetion was thrown.", IllegalArgumentException.class.equals(e.getClass()));
-			assertTrue("Exception message contains correct string.", e.getMessage()
-					.equals("[Assertion failed] - this String argument must have text; it must not be null, empty, or blank"));
+			assertTrue("Different excepetion was thrown.", IllegalArgumentException.class.equals(e.getClass()));
+			assertTrue("Exception message has different string.",
+					e.getMessage().equals(SharedDataRemoteServiceCallMock.ERROR_NULL_REQUEST));
 		}
 
 		assertNull("Null request should have thrown exception.", keyForMockResponse);

@@ -32,7 +32,7 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 	public static final String BEAN_NAME = "sharedDataWsClient";
 
 	/** The Constant SHAREDDATA_OBJECT_FACTORY. */
-	protected static final ObjectFactory SHAREDDATA_OBJECT_FACTORY = new ObjectFactory();
+//	protected static final ObjectFactory SHAREDDATA_OBJECT_FACTORY = new ObjectFactory();
 
 	/** the switchable remote for service calls (impl or mock) */
 	@Autowired
