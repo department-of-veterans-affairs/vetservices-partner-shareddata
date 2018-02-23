@@ -19,7 +19,6 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStates;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStatesResponse;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddress;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddressResponse;
-import gov.va.vetservices.partner.shareddata.ws.client.transfer.ObjectFactory;
 
 /**
  * This class provides an implementation of the SharedDataWSClient interface. It
@@ -30,9 +29,6 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 
 	/** A constant representing the Spring Bean name. */
 	public static final String BEAN_NAME = "sharedDataWsClient";
-
-	/** The Constant SHAREDDATA_OBJECT_FACTORY. */
-//	protected static final ObjectFactory SHAREDDATA_OBJECT_FACTORY = new ObjectFactory();
 
 	/** the switchable remote for service calls (impl or mock) */
 	@Autowired
@@ -61,19 +57,9 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 		final FindStationAddressResponse response =
 				(FindStationAddressResponse) remoteServiceCall.callRemoteService(sharedDataWsTemplate, request, request.getClass());
 
-		return response;
+		Defense.notNull(response, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
 
-//		Defense.notNull(findStationAddressRequest, REQUEST_FOR_WEBSERVICE_CALL_NULL);
-//		FindStationAddressResponse stationAddressResponse;
-//		final JAXBElement<FindStationAddress> findStationAddressRequestElement = SHAREDDATA_OBJECT_FACTORY
-//				.createFindStationAddress(findStationAddressRequest);
-//
-//		final Object webServiceResponse = sharedDataWsTemplate
-//				.marshalSendAndReceive(findStationAddressRequestElement);
-//		Defense.notNull(webServiceResponse, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
-//		final JAXBElement<FindStationAddressResponse> webServiceResponseElement = (JAXBElement<FindStationAddressResponse>) webServiceResponse;
-//		stationAddressResponse = webServiceResponseElement.getValue();
-//		return stationAddressResponse;
+		return response;
 	}
 
 	@Override
@@ -83,18 +69,9 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 		final FindCountriesResponse response =
 				(FindCountriesResponse) remoteServiceCall.callRemoteService(sharedDataWsTemplate, request, request.getClass());
 
-		return response;
+		Defense.notNull(response, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
 
-//		Defense.notNull(findCountries, REQUEST_FOR_WEBSERVICE_CALL_NULL);
-//		FindCountriesResponse findCountriesResponse;
-//		final JAXBElement<FindCountries> findCountriesRequestElement = SHAREDDATA_OBJECT_FACTORY.createFindCountries(findCountries);
-//
-//		final Object webServiceResponse = sharedDataWsTemplate.marshalSendAndReceive(findCountriesRequestElement);
-//		Defense.notNull(webServiceResponse, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
-//		final JAXBElement<FindCountriesResponse> webServiceResponseElement = (JAXBElement<FindCountriesResponse>) webServiceResponse;
-//		findCountriesResponse = webServiceResponseElement.getValue();
-//
-//		return findCountriesResponse;
+		return response;
 	}
 
 	@Override
@@ -104,18 +81,9 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 		final FindStatesResponse response =
 				(FindStatesResponse) remoteServiceCall.callRemoteService(sharedDataWsTemplate, request, request.getClass());
 
-		return response;
+		Defense.notNull(response, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
 
-//		Defense.notNull(findStates, REQUEST_FOR_WEBSERVICE_CALL_NULL);
-//		FindStatesResponse findStatesResponse;
-//		final JAXBElement<FindStates> findStatesRequestElement = SHAREDDATA_OBJECT_FACTORY.createFindStates(findStates);
-//
-//		final Object webServiceResponse = sharedDataWsTemplate.marshalSendAndReceive(findStatesRequestElement);
-//		Defense.notNull(webServiceResponse, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
-//		final JAXBElement<FindStatesResponse> webServiceResponseElement = (JAXBElement<FindStatesResponse>) webServiceResponse;
-//		findStatesResponse = webServiceResponseElement.getValue();
-//
-//		return findStatesResponse;
+		return response;
 	}
 
 	@Override
@@ -125,19 +93,8 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 		final FindIntakeSitesResponse response =
 				(FindIntakeSitesResponse) remoteServiceCall.callRemoteService(sharedDataWsTemplate, request, request.getClass());
 
-		return response;
+		Defense.notNull(response, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
 
-//		Defense.notNull(findIntakeSites, REQUEST_FOR_WEBSERVICE_CALL_NULL);
-//		FindIntakeSitesResponse findIntakeSitesResponse;
-//		final JAXBElement<FindIntakeSites> findIntakeSitesRequestElement =
-//				SHAREDDATA_OBJECT_FACTORY.createFindIntakeSites(findIntakeSites);
-//
-//		final Object webServiceResponse = sharedDataWsTemplate.marshalSendAndReceive(findIntakeSitesRequestElement);
-//		Defense.notNull(webServiceResponse, RESPONSE_FROM_WEBSERVICE_CALL_NULL);
-//		final JAXBElement<FindIntakeSitesResponse> webServiceResponseElement =
-//				(JAXBElement<FindIntakeSitesResponse>) webServiceResponse;
-//		findIntakeSitesResponse = webServiceResponseElement.getValue();
-//
-//		return findIntakeSitesResponse;
+		return response;
 	}
 }

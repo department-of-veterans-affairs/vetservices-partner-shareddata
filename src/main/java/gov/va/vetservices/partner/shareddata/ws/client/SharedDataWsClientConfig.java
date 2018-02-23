@@ -128,13 +128,9 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 			// CHECKSTYLE:ON
 			@Value("${vetservices-partner-shareddata.ws.client.endpoint}") final String endpoint,
 			@Value("${vetservices-partner-shareddata.ws.client.readTimeout:60000}") final int readTimeout,
-			@Value("${vetservices-partner-shareddata.ws.client.connectionTimeout:60000}") final int connectionTimeout)
-			throws KeyManagementException, UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException,
-			CertificateException, IOException {
+			@Value("${vetservices-partner-shareddata.ws.client.connectionTimeout:60000}") final int connectionTimeout) {
 
 		Defense.hasText(endpoint, "sharedDataWsClientAxiomTemplate endpoint cannot be empty.");
-		Defense.isTrue(readTimeout > 0, "sharedDataWsClientAxiomTemplate readTimeout cannot be zero.");
-		Defense.isTrue(connectionTimeout > 0, "sharedDataWsClientAxiomTemplate connectionTimeout cannot be zero.");
 
 		return createDefaultWebServiceTemplate(endpoint, readTimeout, connectionTimeout, sharedDataMarshaller(),
 				sharedDataMarshaller(), new ClientInterceptor[] { sharedDataSecurityInterceptor() });
