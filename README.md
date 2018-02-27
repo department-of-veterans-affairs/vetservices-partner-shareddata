@@ -4,10 +4,10 @@ This repository contains the VetServices Partner Client project for Shared (Stan
 
 # Overview - VetServices Partner SharedData
 
-This project is a component JAR used to access shared data. Include it in your project
+This project is a component JAR used to access shared data. Include it in your project.
 
 ## Using the JAR
-Include the JAR in your dependencies, and access functionality through the SharedDataWsClient class.
+Include the JAR in your dependencies, and access functionality through the SharedDataWsClient interface.
 
 # Requests and Contributions
 
