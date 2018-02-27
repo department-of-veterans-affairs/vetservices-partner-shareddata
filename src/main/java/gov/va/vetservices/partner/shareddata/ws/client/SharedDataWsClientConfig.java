@@ -3,7 +3,6 @@ package gov.va.vetservices.partner.shareddata.ws.client;
 import javax.annotation.PostConstruct;
 
 import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -93,15 +92,14 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	 * @param connectionTimeout the connection timeout
 	 * @return the web service template
 	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method  private or final
+	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
 	WebServiceTemplate sharedDataWsClientAxiomTemplate(
 			// CHECKSTYLE:ON
 			@Value("${vetservices-partner-shareddata.ws.client.endpoint}") final String endpoint,
 			@Value("${vetservices-partner-shareddata.ws.client.readTimeout:60000}") final int readTimeout,
-			@Value("${vetservices-partner-shareddata.ws.client.connectionTimeout:60000}") final int connectionTimeout) 
-	{
+			@Value("${vetservices-partner-shareddata.ws.client.connectionTimeout:60000}") final int connectionTimeout) {
 
 		Defense.hasText(endpoint, "sharedDataWsClientAxiomTemplate endpoint cannot be empty.");
 
@@ -166,8 +164,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	@Bean
 	BeanNameAutoProxyCreator sharedDataWsClientBeanProxy() {
 		// CHECKSTYLE:ON
-		return getBeanNameAutoProxyCreator(
-				new String[] { SharedDataWsClientImpl.BEAN_NAME },
+		return getBeanNameAutoProxyCreator(new String[] { SharedDataWsClientImpl.BEAN_NAME },
 				new String[] { "sharedDataWsClientExceptionInterceptor", "sharedDataWsClientPerformanceLogMethodInterceptor" });
 	}
 }
