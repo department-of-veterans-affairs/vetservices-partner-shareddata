@@ -13,8 +13,6 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddre
  * The interface for the SharedData Web Service Client.
  *
  */
-// Sonar mis-identifies this interface as a single-abstract-method interface.
-@SuppressWarnings("squid:S1609")
 public interface SharedDataWsClient {
 
 	/**

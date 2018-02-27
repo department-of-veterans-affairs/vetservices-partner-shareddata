@@ -1,6 +1,6 @@
 # What is this repository for?
 
-This repository contains the VetServices Partner Client project for Medical (Standard) Data
+This repository contains the VetServices Partner Client project for Shared (Standard) Data
 
 # Overview - VetServices Partner SharedData
 

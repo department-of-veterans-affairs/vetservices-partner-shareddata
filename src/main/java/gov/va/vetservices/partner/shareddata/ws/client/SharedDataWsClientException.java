@@ -3,14 +3,12 @@ package gov.va.vetservices.partner.shareddata.ws.client;
 import gov.va.ascent.framework.exception.AscentRuntimeException;
 
 /**
- * This class represents the unique exception that can be thrown by the SharedDataCaseWsClient.
- *
+ * Root exceptions which indicates an exception/error in the
+ * SharedDataWsClient web service
  */
 public class SharedDataWsClientException extends AscentRuntimeException {
 
-	/**
-	 * generated version Id
-	 */
+	/** Generated serialVersionUID. */
 	private static final long serialVersionUID = -8751235554954215227L;
 
 	/**
