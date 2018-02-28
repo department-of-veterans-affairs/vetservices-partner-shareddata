@@ -73,9 +73,6 @@ public class SharedDataWsClientImplTest extends AbstractSharedDataTest {
 		assertNotNull(response);
 		assertNotNull(response.getReturn());
 		assertNotNull(response.getReturn().getReturnCode());
-		// assertNotNull(response.getReturn().get);
-
-		// assertTrue(response.getReturn().getReturnCode().equals(???SOME_VALUE???));
 	}
 
 	@Test

@@ -21,8 +21,8 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddre
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddressResponse;
 
 /**
- * This class provides an implementation of the SharedDataWSClient interface. It
- * encapsulates the details of interacting with the Person Web Service.
+ * Spring Web Service based implementation of the SharedData
+ * interface
  */
 @Component(SharedDataWsClientImpl.BEAN_NAME)
 public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDataWsClient {
@@ -41,7 +41,7 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 	public WebServiceTemplate sharedDataWsTemplate;
 
 	/**
-	 * The WebServiceTemplate can't be null.
+	 * Executed after dependency injection is done to validate initialization.
 	 */
 	@PostConstruct
 	public final void postConstruct() {
@@ -50,6 +50,18 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 				"sharedDataWsTemplate cannot be null in order for " + this.getClass().getSimpleName() + " to work properly.");
 	}
 
+	/**
+	 * <p>
+	 * Get the address for a station.
+	 * </p>
+	 * <p>
+	 * The RemoteServiceCall implementation is selected by the current spring profile.
+	 * <ul>
+	 * <li>PROFILE_REMOTE_CLIENT_IMPLS instantiates RemoteServiceCallImpl</li>
+	 * <li>PROFILE_REMOTE_CLIENT_SIMULATORS instantiates RemoteServiceCallMock</li>
+	 * </ul>
+	 * </p>
+	 */
 	@Override
 	public final FindStationAddressResponse findStationAddress(final FindStationAddress request) {
 		Defense.notNull(request, REQUEST_FOR_WEBSERVICE_CALL_NULL);
@@ -62,6 +74,18 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 		return response;
 	}
 
+	/**
+	 * <p>
+	 * Get a list of countries.
+	 * </p>
+	 * <p>
+	 * The RemoteServiceCall implementation is selected by the current spring profile.
+	 * <ul>
+	 * <li>PROFILE_REMOTE_CLIENT_IMPLS instantiates RemoteServiceCallImpl</li>
+	 * <li>PROFILE_REMOTE_CLIENT_SIMULATORS instantiates RemoteServiceCallMock</li>
+	 * </ul>
+	 * </p>
+	 */
 	@Override
 	public final FindCountriesResponse findCountries(final FindCountries request) {
 		Defense.notNull(request, REQUEST_FOR_WEBSERVICE_CALL_NULL);
@@ -74,6 +98,18 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 		return response;
 	}
 
+	/**
+	 * <p>
+	 * Get a list of states.
+	 * </p>
+	 * <p>
+	 * The RemoteServiceCall implementation is selected by the current spring profile.
+	 * <ul>
+	 * <li>PROFILE_REMOTE_CLIENT_IMPLS instantiates RemoteServiceCallImpl</li>
+	 * <li>PROFILE_REMOTE_CLIENT_SIMULATORS instantiates RemoteServiceCallMock</li>
+	 * </ul>
+	 * </p>
+	 */
 	@Override
 	public final FindStatesResponse findStates(final FindStates request) {
 		Defense.notNull(request, REQUEST_FOR_WEBSERVICE_CALL_NULL);
@@ -86,6 +122,18 @@ public class SharedDataWsClientImpl extends BaseWsClientImpl implements SharedDa
 		return response;
 	}
 
+	/**
+	 * <p>
+	 * Get a list of intake sites.
+	 * </p>
+	 * <p>
+	 * The RemoteServiceCall implementation is selected by the current spring profile.
+	 * <ul>
+	 * <li>PROFILE_REMOTE_CLIENT_IMPLS instantiates RemoteServiceCallImpl</li>
+	 * <li>PROFILE_REMOTE_CLIENT_SIMULATORS instantiates RemoteServiceCallMock</li>
+	 * </ul>
+	 * </p>
+	 */
 	@Override
 	public final FindIntakeSitesResponse findIntakeSites(final FindIntakeSites request) {
 		Defense.notNull(request, REQUEST_FOR_WEBSERVICE_CALL_NULL);

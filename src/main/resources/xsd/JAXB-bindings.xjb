@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+<jaxb:bindings 
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-	jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.0"
+	jaxb:extensionBindingPrefixes="xjc" 
+	jaxb:version="2.0"
 	xs:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
 
 	<jaxb:globalBindings fixedAttributeAsConstantProperty="true">
-		<jaxb:serializable uid="0"/>
 		<xjc:superClass	name="gov.va.ascent.framework.transfer.AbstractTransferObject" />
 		<xjc:simple/>
 		<xjc:serializable uid="1"/>

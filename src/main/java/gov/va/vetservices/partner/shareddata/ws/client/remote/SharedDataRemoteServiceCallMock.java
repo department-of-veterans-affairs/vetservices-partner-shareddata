@@ -19,8 +19,6 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddre
  * Implements the {@link RemoteServiceCall} interface, and extends
  * {@link AbstractRemoteServiceCallMock} for mocking the remote client under the
  * simulators spring profile.
- *
- * @author aburkholder
  */
 @Profile(AscentCommonSpringProfiles.PROFILE_REMOTE_CLIENT_SIMULATORS)
 @Component(SharedDataRemoteServiceCallImpl.BEAN_NAME)

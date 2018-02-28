@@ -1,16 +1,8 @@
 package gov.va.vetservices.partner.shareddata.ws.client;
 
-import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,46 +21,43 @@ import gov.va.ascent.framework.util.Defense;
 import gov.va.ascent.framework.ws.client.BaseWsClientConfig;
 
 /**
- * This class represents the Spring configuration for the SharedData Web Service
- * Client.
+ * This class represents the Spring configuration for the Web Service Client.
  */
 @Configuration
 @ComponentScan(basePackages = { "gov.va.vetservices.partner.shareddata.ws.client" }, excludeFilters = @Filter(Configuration.class))
 @SuppressWarnings("PMD.ExcessiveImports")
 public class SharedDataWsClientConfig extends BaseWsClientConfig {
 
-	/** The Constant TRANSFER_PACKAGE. */
+	/** The package name for data transfer objects. */
 	private static final String TRANSFER_PACKAGE = "gov.va.vetservices.partner.shareddata.ws.client.transfer";
 
-	/** the XSD for this web service */
+	/** The XSD for this web service */
 	private static final String XSD = "xsd/ShareStandardDataWebService.xsd";
 
 	/** Exception class for exception interceptor */
 	private static final String DEFAULT_EXCEPTION_CLASS =
 			"gov.va.vetservices.partner.shareddata.ws.client.SharedDataWsClientException";
 
-	// ####### values are from /resource/config/*.properties ######
-	/** The username. */
+	// ####### for test, member values are from src/test/resource/application.yml ######
+	/** Decides if jaxb validation logs errors. */
+	@Value("${vetservices-partner-shareddata.ws.client.logValidation:true}")
+	private boolean logValidation;
+
+	/** Username for WS Authentication. */
 	@Value("${vetservices-partner-shareddata.ws.client.username}")
 	private String username;
 
-	/** The password. */
+	/** Password for WS Authentication. */
 	@Value("${vetservices-partner-shareddata.ws.client.password}")
 	private String password;
 
-	/** The va application name. */
+	/** VA Application Name Header value. */
 	@Value("${vetservices-partner-shareddata.ws.client.vaApplicationName}")
 	private String vaApplicationName;
 
-	/** VA STN_ID value */
+	/** VA station ID value */
 	@Value("${vetservices-partner-shareddata.ws.client.stationId}")
 	private String stationId;
-
-	/**
-	 * decides if jaxb validation logs errors.
-	 */
-	@Value("${vetservices-partner-shareddata.ws.client.logValidation:true}")
-	private boolean logValidation;
 
 	/**
 	 * Executed after dependency injection is done to validate initialization.
@@ -86,11 +75,9 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	 *
 	 * @return object marshaller
 	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method
-	// private or final
+	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
-	@Qualifier("sharedDataMarshaller")
 	Jaxb2Marshaller sharedDataMarshaller() {
 		// CHECKSTYLE:ON
 		final Resource[] schemas = new Resource[] { new ClassPathResource(XSD) };
@@ -98,30 +85,14 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	}
 
 	/**
-	 * Axiom based WebServiceTemplate for the Chapter 31 Case Web Service Client.
+	 * Axiom based WebServiceTemplate for the Web Service Client.
 	 *
-	 * @param endpoint
-	 *            the endpoint
-	 * @param readTimeout
-	 *            the read timeout
-	 * @param connectionTimeout
-	 *            the connection timeout
+	 * @param endpoint the endpoint
+	 * @param readTimeout the read timeout
+	 * @param connectionTimeout the connection timeout
 	 * @return the web service template
-	 * @throws KeyManagementException
-	 *             the key management exception
-	 * @throws UnrecoverableKeyException
-	 *             the unrecoverable key exception
-	 * @throws NoSuchAlgorithmException
-	 *             the no such algorithm exception
-	 * @throws KeyStoreException
-	 *             the key store exception
-	 * @throws CertificateException
-	 *             the certificate exception
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
 	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method
-	// private or final
+	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
 	WebServiceTemplate sharedDataWsClientAxiomTemplate(
@@ -137,12 +108,11 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	}
 
 	/**
-	 * Security interceptor to apply wss4j security to Chapter31 Case WS calls.
+	 * Security interceptor to apply wss4j security to WS calls.
 	 *
 	 * @return security interceptor
 	 */
-	// jluck - ignoring DesignForExtension check, we cannot make this spring
-	// bean method private or final
+	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
 	Wss4jSecurityInterceptor sharedDataSecurityInterceptor() {
@@ -151,16 +121,14 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	}
 
 	/**
-	 * PerformanceLogMethodInterceptor for the Chapter31 Case Web Service Client
+	 * PerformanceLogMethodInterceptor for the Web Service Client
 	 *
 	 * Handles performance related logging of the web service client response times.
 	 *
-	 * @param methodWarningThreshhold
-	 *            the method warning threshold
+	 * @param methodWarningThreshhold the method warning threshold
 	 * @return the performance log method interceptor
 	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method
-	// private or final
+	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
 	PerformanceLogMethodInterceptor sharedDataWsClientPerformanceLogMethodInterceptor(
@@ -170,17 +138,15 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	}
 
 	/**
-	 * InterceptingExceptionTranslator for the Chapter 31 Case Web Service Client
+	 * InterceptingExceptionTranslator for the Web Service Client
 	 *
 	 * Handles runtime exceptions raised by the web service client through runtime
 	 * operation and communication with the remote service.
 	 *
 	 * @return the intercepting exception translator
-	 * @throws ClassNotFoundException
-	 *             the class not found exception
+	 * @throws ClassNotFoundException the class not found exception
 	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method
-	// private or final
+	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
 	InterceptingExceptionTranslator sharedDataWsClientExceptionInterceptor() throws ClassNotFoundException {
@@ -193,8 +159,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	 *
 	 * @return the bean name auto proxy creator
 	 */
-	// Ignoring DesignForExtension check, we cannot make this spring bean method
-	// private or final
+	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
 	BeanNameAutoProxyCreator sharedDataWsClientBeanProxy() {
