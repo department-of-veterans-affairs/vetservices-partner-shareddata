@@ -34,7 +34,7 @@ public class SharedDataRemoteServiceCallMock extends AbstractRemoteServiceCallMo
 	static final String FIND_INTAKE_SITES = "allIntakeSites";
 
 	/** error message if request is null */
-	static final String ERROR_NULL_REQUEST = "getKeyForMockResponse request parameter cannont be null.";
+	static final String ERROR_NULL_REQUEST = "getKeyForMockResponse request parameter cannot be null.";
 	/** error message prefix if request type is not handled in getKeyForMockResponse(..) */
 	static final String ERROR_UNHANDLED_REQUEST_TYPE =
 			".getKeyForMockResponse(..) does not have a file naming block for requests of type ";
