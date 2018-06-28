@@ -31,7 +31,7 @@ import org.springframework.xml.transform.StringResult;
 import org.springframework.xml.transform.StringSource;
 
 import gov.va.ascent.framework.config.AscentCommonSpringProfiles;
-import gov.va.ascent.framework.transfer.AbstractTransferObject;
+import gov.va.ascent.framework.transfer.PartnerTransferObjectMarker;
 import gov.va.ascent.framework.util.Defense;
 import gov.va.ascent.framework.ws.client.remote.AbstractRemoteServiceCallMock;
 import gov.va.vetservices.partner.shareddata.ws.client.AbstractSharedDataTest;
@@ -50,7 +50,7 @@ public class RemoteServiceCallImplTest extends AbstractSharedDataTest {
 	private final static String TEST_VALID_STN_NBR = "301";
 
 	/** Specifically the IMPL class for the RemoteServiceCall interface */
-	private SharedDataRemoteServiceCallImpl callPartnerService = new SharedDataRemoteServiceCallImpl();
+	private final SharedDataRemoteServiceCallImpl callPartnerService = new SharedDataRemoteServiceCallImpl();
 
 	private MockWebServiceServer mockWebServicesServer;
 
@@ -71,7 +71,7 @@ public class RemoteServiceCallImplTest extends AbstractSharedDataTest {
 	public void testCallRemoteService() {
 		// call the impl declared by the current @ActiveProfiles
 
-		FindStationAddress request = super.makeFindStationAddressRequest(TEST_VALID_STN_NBR);
+		final FindStationAddress request = super.makeFindStationAddressRequest(TEST_VALID_STN_NBR);
 		final Source requestPayload =
 				marshalMockRequest((Jaxb2Marshaller) axiomWebServiceTemplate.getMarshaller(), request, request.getClass());
 		final Source responsePayload =
@@ -100,7 +100,7 @@ public class RemoteServiceCallImplTest extends AbstractSharedDataTest {
 	 * @param requestClass
 	 * @return
 	 */
-	private StringSource marshalMockRequest(final Jaxb2Marshaller marshaller, final AbstractTransferObject request,
+	private StringSource marshalMockRequest(final Jaxb2Marshaller marshaller, final PartnerTransferObjectMarker request,
 			final Class<?> requestClass) {
 		final StringResult result = new StringResult();
 		marshaller.marshal(requestClass.cast(request), result);
@@ -122,9 +122,9 @@ public class RemoteServiceCallImplTest extends AbstractSharedDataTest {
 			resource = new ResourceSource(
 					new ClassPathResource(MessageFormat.format(AbstractRemoteServiceCallMock.MOCK_FILENAME_TEMPLATE, keyPath)));
 		} catch (final IOException e) {
-			throw new SharedDataWsClientException(("Could not read mock XML file '"
+			throw new SharedDataWsClientException("Could not read mock XML file '"
 					+ MessageFormat.format(AbstractRemoteServiceCallMock.MOCK_FILENAME_TEMPLATE, keyPath) + "' using key '" + keyPath
-					+ "'. Please make sure this response file exists in the main/resources directory."), e);
+					+ "'. Please make sure this response file exists in the main/resources directory.", e);
 		}
 		return resource;
 	}
