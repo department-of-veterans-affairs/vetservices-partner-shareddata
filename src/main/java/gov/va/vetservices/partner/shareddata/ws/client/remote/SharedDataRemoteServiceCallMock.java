@@ -1,5 +1,8 @@
 package gov.va.vetservices.partner.shareddata.ws.client.remote;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.ws.client.core.WebServiceTemplate;
@@ -23,6 +26,7 @@ import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindStationAddre
 @Profile(AscentCommonSpringProfiles.PROFILE_REMOTE_CLIENT_SIMULATORS)
 @Component(SharedDataRemoteServiceCallImpl.BEAN_NAME)
 public class SharedDataRemoteServiceCallMock extends AbstractRemoteServiceCallMock {
+	private static final Logger LOGGER = LoggerFactory.getLogger(SharedDataRemoteServiceCallMock.class);
 
 	/** static string prepended to the station id to identify address mock response files */
 	static final String FIND_ADDRESS_PREFACE = "stationAddress_";
@@ -50,6 +54,8 @@ public class SharedDataRemoteServiceCallMock extends AbstractRemoteServiceCallMo
 			final PartnerTransferObjectMarker request,
 			final Class<? extends PartnerTransferObjectMarker> requestClass) {
 
+		LOGGER.info("Calling MOCK service with request " + ReflectionToStringBuilder.toString(request));
+		// super handles exceptions
 		return super.callMockService(webserviceTemplate, request, requestClass);
 	}
 
