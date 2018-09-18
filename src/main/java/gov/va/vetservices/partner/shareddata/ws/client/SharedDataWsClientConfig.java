@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.client.core.WebServiceTemplate;
@@ -39,6 +40,23 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 			"gov.va.vetservices.partner.shareddata.ws.client.SharedDataWsClientException";
 
 	// ####### for test, member values are from src/test/resource/application.yml ######
+
+	/** Location of the truststore containing the shareddata cert */
+	@Value("${vetservices-partner-shareddata.ws.client.ssl.keystore:src/test/resources/ssl/dev/vaebnweb1Keystore.jks}")
+	private String keystore;
+
+	/** Password for the shareddata cert */
+	@Value("${vetservices-partner-shareddata.ws.client.ssl.keystorePass:password}")
+	private String keystorePass;
+
+	/** Location of the truststore containing the shareddata cert */
+	@Value("${vetservices-partner-shareddata.ws.client.ssl.truststore:src/test/resources/ssl/dev/vaebnTruststore.jks}")
+	private String truststore;
+
+	/** Password for the shareddata cert */
+	@Value("${vetservices-partner-shareddata.ws.client.ssl.truststorePass:password}")
+	private String truststorePass;
+
 	/** Decides if jaxb validation logs errors. */
 	@Value("${vetservices-partner-shareddata.ws.client.logValidation:true}")
 	private boolean logValidation;
@@ -64,6 +82,10 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	 */
 	@PostConstruct
 	public final void postConstruct() {
+		Defense.hasText(keystore, "Partner keystore cannot be empty.");
+		Defense.hasText(keystorePass, "Partner keystorePass cannot be empty.");
+		Defense.hasText(truststore, "Partner truststore cannot be empty.");
+		Defense.hasText(truststorePass, "Partner truststorePass cannot be empty.");
 		Defense.hasText(username, "Partner username cannot be empty.");
 		Defense.hasText(password, "Partner password cannot be empty.");
 		Defense.hasText(vaApplicationName, "Partner vaApplicationName cannot be empty.");
@@ -103,8 +125,9 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 
 		Defense.hasText(endpoint, "sharedDataWsClientAxiomTemplate endpoint cannot be empty.");
 
-		return createDefaultWebServiceTemplate(endpoint, readTimeout, connectionTimeout, sharedDataMarshaller(),
-				sharedDataMarshaller(), new ClientInterceptor[] { sharedDataSecurityInterceptor() });
+		return createSslWebServiceTemplate(endpoint, readTimeout, connectionTimeout, sharedDataMarshaller(),
+				sharedDataMarshaller(), new ClientInterceptor[] { sharedDataSecurityInterceptor() },
+				new FileSystemResource(keystore), keystorePass, new FileSystemResource(truststore), truststorePass);
 	}
 
 	/**
