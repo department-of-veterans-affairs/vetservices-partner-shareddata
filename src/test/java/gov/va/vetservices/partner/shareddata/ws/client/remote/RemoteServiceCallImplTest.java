@@ -2,6 +2,8 @@ package gov.va.vetservices.partner.shareddata.ws.client.remote;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.ws.test.client.RequestMatchers.payload;
 import static org.springframework.ws.test.client.ResponseCreators.withPayload;
 
@@ -11,8 +13,12 @@ import java.text.MessageFormat;
 import javax.xml.transform.Source;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ClassPathResource;
@@ -58,6 +64,12 @@ public class RemoteServiceCallImplTest extends AbstractSharedDataTest {
 	@Qualifier("sharedDataWsClientAxiomTemplate")
 	private WebServiceTemplate axiomWebServiceTemplate;
 
+	@Mock
+	private WebServiceTemplate axiomWebServiceTemplateMock;
+
+	@Rule
+	public MockitoRule mockitoRule = MockitoJUnit.rule();
+
 	@Before
 	public void setUp() {
 		assertNotNull("FAIL axiomWebServiceTemplate cannot be null.", axiomWebServiceTemplate);
@@ -89,6 +101,22 @@ public class RemoteServiceCallImplTest extends AbstractSharedDataTest {
 			e.printStackTrace();
 
 			fail("FAIL mockWebServicesServer did not function as expected");
+		}
+	}
+
+	@Test
+	public void testCallRemoteServiceExceptionHandling() {
+		final FindStationAddress request = super.makeFindStationAddressRequest(TEST_VALID_STN_NBR);
+
+		when(axiomWebServiceTemplateMock.marshalSendAndReceive(any(PartnerTransferObjectMarker.class)))
+				.thenThrow(new RuntimeException());
+
+		try {
+			callPartnerService.callRemoteService(axiomWebServiceTemplateMock, request, FindStationAddress.class);
+
+		} catch (final Throwable e) {
+			e.printStackTrace();
+			assertNotNull(e);
 		}
 	}
 
