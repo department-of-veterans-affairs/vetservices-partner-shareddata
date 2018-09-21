@@ -12,7 +12,7 @@ vetservices-partner-shareddata.ws.client.endpoint: http://localhost:9723/mockSha
 vetservices-partner-shareddata.ws.client.username: unitTestUsername
 vetservices-partner-shareddata.ws.client.password: unitTestPassword
 vetservices-partner-shareddata.ws.client.vaApplicationName: unitTestAppName
-vetservices-partner-shareddata.ws.client.stationId: unitTestStationID
+bgs.stationId: unitTestStationId
 
 vetservices-partner-shareddata.ws.client.logValidation: true
 vetservices-partner-shareddata.ws.client.readTimeout: 60000

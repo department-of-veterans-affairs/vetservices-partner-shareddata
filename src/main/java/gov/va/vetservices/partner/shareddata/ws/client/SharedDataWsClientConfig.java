@@ -74,7 +74,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	private String vaApplicationName;
 
 	/** VA station ID value */
-	@Value("${vetservices-partner-shareddata.ws.client.stationId}")
+	@Value("${bgs.stationId}")
 	private String stationId;
 
 	/**
