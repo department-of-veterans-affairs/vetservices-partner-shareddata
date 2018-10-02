@@ -10,12 +10,12 @@
 	<parent>
 		<groupId>gov.va.ascent</groupId>
 		<artifactId>ascent-libraries-parent</artifactId>
-		<version>0.0.7-SNAPSHOT</version>
+		<version>0.0.7</version>
 	</parent>
 
 	<groupId>gov.va.vetservices.partner</groupId>
 	<artifactId>vetservices-partner-shareddata</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<name>${project.artifactId}</name>
 	<description>VetServices Shared Data partner client</description>
 
@@ -37,6 +37,7 @@
 			<groupId>gov.va.ascent</groupId>
 			<artifactId>ascent-framework</artifactId>
 			<version>0.0.10-SNAPSHOT</version>
+
 		</dependency>
 
 		<!-- Apache Commons project dependencies -->
