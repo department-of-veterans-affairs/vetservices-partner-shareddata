@@ -26,7 +26,9 @@ import gov.va.ascent.framework.ws.client.remote.RemoteServiceCallInterceptor;
  * This class represents the Spring configuration for the Web Service Client.
  */
 @Configuration
-@ComponentScan(basePackages = { "gov.va.vetservices.partner.shareddata.ws.client" }, excludeFilters = @Filter(Configuration.class))
+@ComponentScan(basePackages = { "gov.va.vetservices.partner.shareddata.ws.client", "gov.va.ascent.framework.ws.client",
+		 "gov.va.ascent.framework.audit"}, 
+			   excludeFilters = @Filter(Configuration.class))
 @SuppressWarnings("PMD.ExcessiveImports")
 public class SharedDataWsClientConfig extends BaseWsClientConfig {
 

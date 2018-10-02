@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ActiveProfiles;
@@ -17,6 +19,9 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import gov.va.ascent.framework.audit.RequestResponseLogSerializer;
 import gov.va.ascent.framework.config.AscentCommonSpringProfiles;
 import gov.va.vetservices.partner.shareddata.ws.client.remote.SharedDataRemoteServiceCallMock;
 import gov.va.vetservices.partner.shareddata.ws.client.transfer.FindCountries;
@@ -54,10 +59,14 @@ public class SharedDataWsClientImplTest extends AbstractSharedDataTest {
 
 	private final static String TEST_VALID_STN_NBR = "301";
 	private final static String TEST_BAD_STN_NBR = "000";
-
+	
+	@Spy
+    RequestResponseLogSerializer requestResponseLogSerializer = new RequestResponseLogSerializer();
+	
 	@Autowired
 	@Qualifier(SharedDataWsClientImpl.BEAN_NAME)
 	SharedDataWsClient sharedDataWsClientImpl;
+
 
 	@Before
 	public void setUp() {
