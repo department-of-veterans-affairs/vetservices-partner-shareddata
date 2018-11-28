@@ -17,6 +17,7 @@ import org.springframework.ws.client.support.interceptor.ClientInterceptor;
 import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
 
 import gov.va.ascent.framework.exception.InterceptingExceptionTranslator;
+import gov.va.ascent.framework.log.LogHttpCallInterceptor;
 import gov.va.ascent.framework.log.PerformanceLogMethodInterceptor;
 import gov.va.ascent.framework.util.Defense;
 import gov.va.ascent.framework.ws.client.BaseWsClientConfig;
@@ -27,8 +28,7 @@ import gov.va.ascent.framework.ws.client.remote.RemoteServiceCallInterceptor;
  */
 @Configuration
 @ComponentScan(basePackages = { "gov.va.vetservices.partner.shareddata.ws.client", "gov.va.ascent.framework.ws.client",
-		 "gov.va.ascent.framework.audit"}, 
-			   excludeFilters = @Filter(Configuration.class))
+		"gov.va.ascent.framework.audit" }, excludeFilters = @Filter(Configuration.class))
 @SuppressWarnings("PMD.ExcessiveImports")
 public class SharedDataWsClientConfig extends BaseWsClientConfig {
 
@@ -128,8 +128,12 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 
 		Defense.hasText(endpoint, "sharedDataWsClientAxiomTemplate endpoint cannot be empty.");
 
+		LogHttpCallInterceptor logHttpCallInterceptor = new LogHttpCallInterceptor();
+
 		return createSslWebServiceTemplate(endpoint, readTimeout, connectionTimeout, sharedDataMarshaller(),
-				sharedDataMarshaller(), new ClientInterceptor[] { sharedDataSecurityInterceptor() },
+				// logHttpCallInterceptor has to be the last element in the array, since it needs to log the message once all
+				// interceptors are done doing their job, so as to log the complete message just before it is being sent
+				sharedDataMarshaller(), new ClientInterceptor[] { sharedDataSecurityInterceptor(), logHttpCallInterceptor },
 				new FileSystemResource(keystore), keystorePass, new FileSystemResource(truststore), truststorePass);
 	}
 
@@ -166,8 +170,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	/**
 	 * InterceptingExceptionTranslator for the Web Service Client
 	 *
-	 * Handles runtime exceptions raised by the web service client through runtime
-	 * operation and communication with the remote service.
+	 * Handles runtime exceptions raised by the web service client through runtime operation and communication with the remote service.
 	 *
 	 * @return the intercepting exception translator
 	 * @throws ClassNotFoundException the class not found exception
@@ -179,12 +182,11 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 		// CHECKSTYLE:ON
 		return getInterceptingExceptionTranslator(DEFAULT_EXCEPTION_CLASS, PACKAGE_ASCENT_FRAMEWORK_EXCEPTION);
 	}
-	
+
 	/**
 	 * RemoteServiceCallInterceptor for the Web Service Client
 	 *
-	 * Handles runtime exceptions raised by the web service client through runtime
-	 * operation and communication with the remote service.
+	 * Handles runtime exceptions raised by the web service client through runtime operation and communication with the remote service.
 	 *
 	 * @return the RemoteServiceCallInterceptor
 	 * @throws ClassNotFoundException the class not found exception
@@ -192,12 +194,10 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	// Ignoring DesignForExtension check, we cannot make this spring bean method private or final
 	// CHECKSTYLE:OFF
 	@Bean
-	RemoteServiceCallInterceptor sharedDataWsClientRemoteServiceCallInterceptor()  {
+	RemoteServiceCallInterceptor sharedDataWsClientRemoteServiceCallInterceptor() {
 		// CHECKSTYLE:ON
 		return getRemoteServiceCallInterceptor();
 	}
-	
-	
 
 	/**
 	 * A standard bean proxy to apply interceptors to the web service client.
@@ -210,7 +210,7 @@ public class SharedDataWsClientConfig extends BaseWsClientConfig {
 	BeanNameAutoProxyCreator sharedDataWsClientBeanProxy() {
 		// CHECKSTYLE:ON
 		return getBeanNameAutoProxyCreator(new String[] { SharedDataWsClientImpl.BEAN_NAME },
-				new String[] { "sharedDataWsClientExceptionInterceptor", 
-						"sharedDataWsClientRemoteServiceCallInterceptor", "sharedDataWsClientPerformanceLogMethodInterceptor"});
+				new String[] { "sharedDataWsClientExceptionInterceptor", "sharedDataWsClientRemoteServiceCallInterceptor",
+						"sharedDataWsClientPerformanceLogMethodInterceptor" });
 	}
 }
